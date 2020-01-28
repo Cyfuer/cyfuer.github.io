@@ -14,9 +14,11 @@
     <meta name="description" content="
 摘自网络《操作系统的发展史》
 
-一.UNIX发展史
+
 1.1 UNIX
-1965 年之前，只有军事或者学院的研究机构能接触到电脑，而且当时大型主机至多能提供30台终端（30个键盘、显示器)，连接一台,"> 
+1965 年之前，只有军事或者学院的研究机构能接触到电脑，而且当时大型主机至多能提供30台终端（30个键盘、显示器)，连接一台电脑
+
+1965 ,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/cyfuer.github.io/img/favicon.png"> 
@@ -76,7 +78,7 @@
             <blockquote>
 <p>摘自网络《<a href="https://mp.weixin.qq.com/s?__biz=MzU2NjI5MTM1Mg==&mid=2247483694&idx=1&sn=c34707e69c9878ebabb6681ee3ab895b&chksm=fcafffd9cbd876cf018c9fd5b6aa62ac001be46e5e4a788eae11041b5cbecfc099167a7624de#rd" target="_blank" rel="noopener">操作系统的发展史</a>》</p>
 </blockquote>
-<h2 id="一-UNIX发展史"><a href="#一-UNIX发展史" class="headerlink" title="一.UNIX发展史"></a>一.UNIX发展史</h2><p><img src="https://upload-images.jianshu.io/upload_images/266115-4b839fc6cb08e446.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200" alt="unix家谱"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/266115-a1455d515d8e3f11.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h5 id="1-1-UNIX"><a href="#1-1-UNIX" class="headerlink" title="1.1 UNIX"></a>1.1 UNIX</h5><ul>
 <li><p>1965 年之前，只有军事或者学院的研究机构能接触到电脑，而且当时大型主机至多能提供30台终端（30个键盘、显示器)，连接一台电脑</p>
 </li>
@@ -99,12 +101,18 @@
 <blockquote>
 <p>在把 <strong>UNIX</strong> 移植到其他类型的计算机上使用时，<strong>C 语言</strong>强大的移植性（Portability）在此显现，机器语言和汇编语言都不具备移植性，为 x86 开发的程序，不可能在 Alpha ， SPAPC 和 ARM 等机器上运行，而<strong>C语言程序</strong>则可以使用在任意架构的处理器上，只要那种架构的处理器<strong>具有对应的 C 语言编译器和库</strong>，然后将 C 源代码编译、连接成目标二进制文件之后即可运行。</p>
 </blockquote>
-<h5 id="1-2-Minix"><a href="#1-2-Minix" class="headerlink" title="1.2 Minix"></a>1.2 Minix</h5><ul>
-<li>因为 <strong>AT&amp;T（通用电气）</strong> 的政策改变，在 Version 7 Unix 推出之后，发布新的使用条款，将 UNIX 源代码私有化，在大学中不再能使用 UNIX 源代码</li>
-<li><strong>Andrew S. Tanenbaum（塔能鲍姆）</strong> 教授为了能 <strong>在课堂上教授学生操作系统运作的细节</strong>，决定在不使用任何 AT&amp;T 的源代码前提下，自行开发与 UNIX 兼容的操作系统，以避免版权上的争议</li>
-<li>以 <strong>小型 UNIX（mini-UNIX）</strong>之意，将它称为 <strong>MINIX</strong></li>
+<h5 id="1-2-BSD"><a href="#1-2-BSD" class="headerlink" title="1.2 BSD"></a>1.2 BSD</h5><ul>
+<li>1977年，BSD （Berkeley Software Distribution）诞生。Berkeley大学的Bill Joy修改了UNIX的内核源码，得到合适自己机器的版本并增加了很多工具软件和编译程序，命名为BSD。Bill Joy也是Sun的创办者。Sun是以BSD开发的内核进行自己的商业UNIX版本开发的。（可用于x86硬件架构的FreeBSD即由BSD改版而来）<br><img src="https://upload-images.jianshu.io/upload_images/266115-dd5834c834a53cf6.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
 </ul>
-<h5 id="1-3-Linux"><a href="#1-3-Linux" class="headerlink" title="1.3 Linux"></a>1.3 Linux</h5><ul>
+<h5 id="1-3-Minix"><a href="#1-3-Minix" class="headerlink" title="1.3 Minix"></a>1.3 Minix</h5><ul>
+<li><p>1979年，因为 <strong>AT&amp;T（通用电气）</strong> 的政策改变，在 Version 7 Unix 推出之后，发布新的使用条款，将 UNIX 源代码私有化，在大学中不再能使用 UNIX 源代码</p>
+</li>
+<li><p>1984年，<strong>Andrew S. Tanenbaum（塔能鲍姆）</strong> 教授为了能 <strong>在课堂上教授学生操作系统运作的细节</strong>，决定在不使用任何 AT&amp;T 的源代码前提下，自行开发与 UNIX 兼容的操作系统，以避免版权上的争议，以小型 UNIX（mini-UNIX）之意，将它称为 <strong>MINIX</strong></p>
+</li>
+<li><p>同年，Richard Mathew Stallman为了“创建一个自由、开放的UNIX操作系统”开始GNU项目。陆续开发出EMACS、GNU C（GCC）、GNU C LIBRARY （GLIBC）、Bash Shell。并于1985年草拟了GPL（general public license）。但当时开发的软件只能运寻根在授权的UNIX平台上，一直到Linux出现</p>
+</li>
+</ul>
+<h5 id="1-4-Linux"><a href="#1-4-Linux" class="headerlink" title="1.4 Linux"></a>1.4 Linux</h5><ul>
 <li><p>1991 年 <strong>林纳斯（Linus）</strong> 就读于赫尔辛基大学期间，对 Unix 产生浓厚兴趣，尝试着在Minix 上做一些开发工作</p>
 </li>
 <li><p>因为 <strong>Minix</strong> 只是教学使用，因此功能并不强，<strong>林纳斯</strong> 经常要用他的终端 <strong>仿真器（Terminal Emulator）</strong> 去访问大学主机上的新闻组和邮件，为了方便读写和下载文件，他自己编写了磁盘驱动程序和文件系统，这些在后来成为了 Linux 第一个内核的雏形，当时，他年仅 21 岁</p>
@@ -113,83 +121,13 @@
 </li>
 </ul>
 <p><img src="https://upload-images.jianshu.io/upload_images/266115-a53dd07d44064e8c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Linus"></p>
-<h2 id="Linux内核及发行版"><a href="#Linux内核及发行版" class="headerlink" title="Linux内核及发行版"></a>Linux内核及发行版</h2><h5 id="2-1-Linux-内核版本"><a href="#2-1-Linux-内核版本" class="headerlink" title="2.1 Linux 内核版本"></a>2.1 Linux 内核版本</h5><ul>
-<li><p><strong>内核（<a href="https://www.kernel.org/" target="_blank" rel="noopener">kernel</a>）</strong>是系统的心脏，是运行程序和管理像磁盘和打印机等硬件设备的核心程序，它提供了一个在裸设备与应用程序间的抽象层</p>
+<h5 id="1-5-智能终端系统"><a href="#1-5-智能终端系统" class="headerlink" title="1.5 智能终端系统"></a>1.5 智能终端系统</h5><ul>
+<li><p>从Unix操作系统的发展历史来看，又可以分为古典Unix，近代Unix和现代Unix，其中Linux起源于Minix，在严格意义上来讲不属于Unix范畴。智能终端系统除了苹果iOS外，Android、MeeGo和WebOS都属于Linux系统分支。</p>
 </li>
-<li><p>Linux 内核版本又分为 <strong>稳定版</strong> 和 <strong>开发版</strong>，两种版本是相互关联，相互循环</p>
-<ul>
-<li><p><strong>稳定版</strong>：具有工业级强度，可以广泛地应用和部署。新的稳定版相对于较旧的只是修正一些 bug 或加入一些新的驱动程序</p>
-</li>
-<li><p><strong>开发版</strong>：由于要试验各种解决方案，所以变化很快</p>
+<li><p>Linux有许多不同的版本，而且Linux的内核的发行和使用是完全免费的。所以很多的公司、组织，甚至是个人开发了他们自己Linux操作系统版本。随着Linux成熟发展和开放，Linux也经常内嵌在许多硬件设备之中，例如路由器、交换机、电话系统、智能手机、GPS系统等。比较受欢迎的Linux发行版如Fedora、Ubuntu、Red Hat、Debian、SUSE等等</p>
 </li>
 </ul>
-</li>
-</ul>
-<blockquote>
-<p>所有来自全世界的对 Linux 源码的修改最终都会汇总到这个网站，由 Linus 领导的开源社区对其进行甄别和修改最终决定是否进入到 Linux 主线内核源码中</p>
-</blockquote>
-<h5 id="2-2-Linux-发行版本"><a href="#2-2-Linux-发行版本" class="headerlink" title="2.2 Linux 发行版本"></a>2.2 Linux 发行版本</h5><ul>
-<li><p><strong>Linux 发行版（也被叫做 GNU/Linux 发行版）</strong>通常包含了包括桌面环境、办公套件、媒体播放器、数据库等应用软件</p>
-</li>
-<li><p>常见的发行版本如下：</p>
-<ul>
-<li><p>Ubuntu</p>
-</li>
-<li><p>Redhat</p>
-</li>
-<li><p>Fedora</p>
-</li>
-<li><p>openSUSE</p>
-</li>
-<li><p>Linux Mint</p>
-</li>
-<li><p>Debian</p>
-</li>
-<li><p>Manjaro</p>
-</li>
-<li><p>Mageia</p>
-</li>
-<li><p>CentOS</p>
-</li>
-<li><p>Arch</p>
-</li>
-</ul>
-<ul>
-<li>十大 Linux 服务器发行版排行榜：<a href="http://os.51cto.com/art/201612/526126.htm" target="_blank" rel="noopener">http://os.51cto.com/art/201612/526126.htm</a></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>在几乎每一份与 Linux 有关的榜单上，基于 Debian 的 Ubuntu 都占有一席之位。Canonical 的Ubuntu 胜过其他所有的 Linux 服务器发行版 ―― 从简单安装、出色的硬件发现，到世界级的商业支持，Ubuntu确立了难以企及的严格标准</p>
-</blockquote>
-<h2 id="Linux的应用领域"><a href="#Linux的应用领域" class="headerlink" title="Linux的应用领域"></a>Linux的应用领域</h2><h5 id="3-1-服务器领域"><a href="#3-1-服务器领域" class="headerlink" title="3.1 服务器领域"></a>3.1 服务器领域</h5><ul>
-<li><p>Linux 在服务器领域的应用是其重要分支</p>
-</li>
-<li><p>Linux 免费、稳定、高效等特点在这里得到了很好的体现</p>
-<ul>
-<li>早期因为维护、运行等原因同样受到了很大的限制</li>
-</ul>
-</li>
-<li><p>近些年来 Linux 服务器市场得到了飞速的提升，尤其在一些高端领域尤为广泛</p>
-</li>
-</ul>
-<h5 id="3-2-嵌入式领域"><a href="#3-2-嵌入式领域" class="headerlink" title="3.2 嵌入式领域"></a>3.2 嵌入式领域</h5><ul>
-<li><p>近些年来 Linux 在嵌入式领域的应用得到了飞速的提高</p>
-</li>
-<li><p>Linux 运行稳定、对网络的良好支持性、低成本，且可以根据需要进行软件裁剪，内核最小可以达到几百 KB 等特点，使其近些年来在嵌入式领域的应用得到非常大的提高</p>
-</li>
-</ul>
-<blockquote>
-<p>主要应用：<strong>机顶盒</strong>、<strong>数字电视</strong>、<strong>网络电话</strong>、<strong>程控交换机</strong>、<strong>手机</strong>、<strong>PDA</strong>、等都是其应用领域，得到了 Google、三星、摩托罗拉、NEC 等公司的大力推广</p>
-</blockquote>
-<h5 id="3-3-个人桌面领域"><a href="#3-3-个人桌面领域" class="headerlink" title="3.3 个人桌面领域"></a>3.3 个人桌面领域</h5><ul>
-<li><p>此领域是传统 Linux 应用最薄弱的环节</p>
-</li>
-<li><p>传统 Linux 由于界面简单、操作复杂、应用软件少的缺点，一直被 Windows 所压制</p>
-</li>
-<li><p>近些年来随着 <strong>Ubuntu</strong>、<strong>Fedora</strong> 等优秀桌面环境的兴起，同时各大硬件厂商对其支持的加大，Linux 在个人桌面领域的占有率在逐渐的提高<br><img src="https://upload-images.jianshu.io/upload_images/266115-abadf694aedd1978.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-</li>
-</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/266115-17e1383bef845d25.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">

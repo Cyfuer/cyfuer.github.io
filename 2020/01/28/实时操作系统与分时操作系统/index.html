@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>实时操作系统与分时操作系统 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="cyfuer,"> 
+    <meta name="description" content="
+摘录自《什么叫实时操作系统，什么叫非实时操作系统，两者有什么区别？》
+
+一.实时操作系统实时操作系统(Real Time Operating System)是控制所有任务协调一致运行并保证任务在规,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/cyfuer.github.io/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/cyfuer.github.io/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://cyfuer.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">实时操作系统与分时操作系统</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">实时操作系统与分时操作系统</h1>
+        <div class="stuff">
+            <span>一月 28, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/cyfuer.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <blockquote>
+<p>摘录自《<a href="http://blog.sina.com.cn/s/blog_7606366d0102wsbc.html" target="_blank" rel="noopener">什么叫实时操作系统，什么叫非实时操作系统，两者有什么区别？</a>》</p>
+</blockquote>
+<h2 id="一-实时操作系统"><a href="#一-实时操作系统" class="headerlink" title="一.实时操作系统"></a>一.实时操作系统</h2><p><strong>实时操作系统</strong>(Real Time Operating System)是控制所有任务协调一致运行并保证任务在规定时间内完成响应的操作系统。其设计原则是：采用各种算法和策略，始终保证系统行为的可预测性(predictability)。可预 测性是指在系统运行的任何时刻，在任何情况下，实时操作系统的资源调配策略都能为争夺资源(包括CPU、内存、网络带宽等)的多个实时任务合理地分配资 源，使每个实时任务的实时性要求都能得到满足。</p>
+<p>实时操作系统有<strong>硬实时</strong>和<strong>软实时</strong>之分。</p>
+<p><strong>硬实时操作系统</strong>要求在规定的时间内必须完成操作，如果不能在允许时间内完成使物体可达的计算，操作系统将因错误结束；</p>
+<p><strong>软实时操作系统</strong>则只要按照任务的优先级，尽可能快地完成操作即可。我们通常使用的操作系统在经过一定改变之后就可以变成实时操作系统。</p>
+<h2 id="二-分时操作系统"><a href="#二-分时操作系统" class="headerlink" title="二.分时操作系统"></a>二.分时操作系统</h2><p><strong>分时操作系统</strong>(Time-sharing Operating System)是采用时间片轮转的方式实现及时响应多用户、多终端交互的操作系统。其设计原则是：尽量缩短系统的平均响应时间并提高系统的吞吐率，在单位时间内为尽可能多的用户请求提供服务。</p>
+<p>现在的通用操作系统(Windows、Unix、Linux等，早期的Windows并不支持多用户，算实时操作系统)就是由分时操作系统发展而来。</p>
+<h2 id="三-差异"><a href="#三-差异" class="headerlink" title="三.差异"></a>三.差异</h2><h5 id="任务调度策略"><a href="#任务调度策略" class="headerlink" title="任务调度策略"></a>任务调度策略</h5><p>通用操作系统中的任务调度策略一般采用基于优先级的抢先式调度策略，对于优先级相同的进程则采用时间片轮转调度方式，用户进程可以通过系统调用动态地调整自己的优先级，操作系统也可根据情况调整某些进程的优先级。 </p>
+<p>实时操作系统中的任务调度策略目前使用最广泛的主要可分为两种，一种是静态表驱动方式，另一种是固定优先级抢先式调度方式。<br>静态表驱动方式是指在系统运行前工程师根据各任务的实时要求用手工的方式或在辅助工具的帮助下生成一张任务的运行时间表，这张时间表与列车的运行时刻表类 似，指明了各任务的起始运行时间以及运行长度，运行时间表一旦生成就不再变化了，在运行时调度器只需根据这张表在指定的时刻启动相应的任务即可。静态表驱 动方式的主要优点是：运行时间表是在系统运行前生成的，因此可以采用较复杂的搜索算法找到较优的调度方案； 运行时调度器开销较小； 系统具有非常好的可预测性，实时性验证也比较方便； </p>
+<p>这种方式主要缺点是不灵活，需求一旦发生变化，就要重新生成整个运行时间表。 </p>
+<p>由于具有非常好的可预测性，这种方式主要用于航空航天、军事等对系统的实时性要求十分严格的领域。 </p>
+<p>固定优先级抢先式调度方式则与通用操作系统中采用的基于优先级的调度方式基本类似，但在固定优先级抢先式调度方式中，进程的优先级是固定不变的，并且该优 先级是在运行前通过某种优先级分配策略（如Rate-Monotonic、Deadline-Monotonic等）来指定的。这种方式的优缺点与静态表 驱动方式的优缺点正好完全相反，它主要应用于一些较简单、较独立的嵌入式系统，但随着调度理论的不断成熟和完善，这种方式也会逐渐在一些对实时性要求十分 严格的领域中得到应用。目前市场上大部分的实时操作系统采用的都是这种调度方式。</p>
+<h5 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h5><p>关于虚存管理机制我们在上面已经进行了一些讨论。为解决虚存给系统带来的不可预测性，实时操作系统一般采用如下两种方式：  </p>
+<ul>
+<li><p>在原有虚存管理机制的基础上增加页面锁功能，用户可将关键页面锁定在内存中，从而不会被swap程序将该页面交换出内存。这种方式的 优点是既得到了虚存管理机制为软件开发带来的好处，又提高了系统的可预测性。缺点是由于TLB等机制的设计也是按照注重平均表现的原则进行的，因此系统的 可预测性并不能完全得到保障； </p>
+</li>
+<li><p>采用静态内存划分的方式，为每个实时任务划分固定的内存区域。这种方式的优点是系统具有较好的可预测性，缺点是灵活性不够好，任务对存储器的需求一旦有变化就需要重新对内存进行划分，此外虚存管理机制所带来的好处也丧失了。 </p>
+</li>
+</ul>
+<p>目前市场上的实时操作系统一般都采用第一种管理方式。</p>
+<h5 id="中断处理"><a href="#中断处理" class="headerlink" title="中断处理"></a>中断处理</h5><p>在通用操作系统中，大部分外部中断都是开启的，中断处理一般由设备驱动程序来完成。由于通用操作系统中的用户进程一般都没有实时性要求，而中断处理程序直接跟硬件设备交互，可能有实时性要求，因此中断处理程序的优先级被设定为高于任何用户进程。 </p>
+<p>但对于实时操作系统采用上述的中断处理机制是不合适的。首先，外部中断是环境向实时操作系统进行的输入，它的频度是与环境变化的速率相关的，而与实时操作 系统无关。如果外部中断产生的频度不可预测，则一个实时任务在运行时被中断处理程序阻塞的时间开销也是不可预测的，从而使任务的实时性得不到保证；如果外 部中断产生的频度是可预测的，一旦某外部中断产生的频度超出其预测值（如硬件故障产生的虚假中断信号或预测值本身有误）就可能会破坏整个系统的可预测性。 其次，实时操作系统中的各用户进程一般都有实时性要求，因此中断处理程序优先级高于所有用户进程的优先级分配方式是不合适的。 </p>
+<p>一种较适合实时操作系统的中断处理方式为：除时钟中断外，屏蔽所有其它中断，中断处理程序变为周期性的轮询操作，这些操作由核心态的设备驱动程序或由用户 态的设备支持库来完成。采用这种方式的主要好处是充分保证了系统的可预测性，主要缺点是对环境变化的响应可能不如上述中断处理方式快，另外轮询操作在一定 程度上降低了CPU的有效利用率。另一种可行的方式是：对于采用轮询方式无法满足需求的外部事件，采用中断方式，其它时间仍然采用轮询方式。但此时中断处 理程序与所以其它任务一样拥有优先级，调度器根据优先级对处于就绪态的任务和中断处理程序统一进行处理器调度。这种方式使外部事件的响应速度加快，并避免 了上述中断方式带来第二个问题，但第一个问题仍然存在。 </p>
+<p>此外为提高时钟中断响应时间的可预测性，实时操作系统应尽可能少地屏蔽中断。</p>
+<h5 id="共享资源的互斥访问"><a href="#共享资源的互斥访问" class="headerlink" title="共享资源的互斥访问"></a>共享资源的互斥访问</h5><p>通用操作系统一般采用信号量机制来解决共享资源的互斥访问问题。 </p>
+<p>对于实时操作系统，如果任务调度采用静态表驱动方式，共享资源的互斥访问问题在生成运行时间表时已经考虑到了，在运行时无需再考虑。如果任务调度采用基于 优先级的方式，则传统的信号量机制在系统运行时很容易造成优先级倒置问题（Priority Inversion），即当一个高优先级任务通过信号量机制 访问共享资源时，该信号量已被一低优先级任务占有，而这个低优先级任务在访问共享资源时可能又被其它一些中等优先级的任务抢先，因此造成高优先级任务被许 多具有较低优先级的任务阻塞，实时性难以得到保证。因此在实时操作系统中，往往对传统的信号量机制进行了一些扩展，引入了如优先级继承协议 (Priority Inheritance Protocol)、优先级顶置协议(Priority Ceiling Protocol)以及 Stack Resource Policy等机制，较好地解决了优先级倒置的问题。</p>
+<h5 id="系统调用以及系统内部操作的时间开销"><a href="#系统调用以及系统内部操作的时间开销" class="headerlink" title="系统调用以及系统内部操作的时间开销"></a>系统调用以及系统内部操作的时间开销</h5><p>进程通过系统调用得到操作系统提供的服务，操作系统通过内部操作（如上下文切换等）来完成一些内部管理工作。为保证系统的可预测性，实时操作系统中的所有 系统调用以及系统内部操作的时间开销都应是有界的，并且该界限是一个具体的量化数值。而在通用操作系统中对这些时间开销则未做如此限制。</p>
+<h5 id="系统的可重入性"><a href="#系统的可重入性" class="headerlink" title="系统的可重入性"></a>系统的可重入性</h5><p>在通用操作系统中，核心态系统调用往往是不可重入的，当一低优先级任务调用核心态系统调用时，在该时间段内到达的高优先级任务必须等到低优先级的系统调用完成才能获得CPU，这就降低了系统的可预测性。因此，实时操作系统中的核心态系统调用往往设计为可重入的。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/cyfuer.github.io/js/plugin.js"></script>
+<script src="/cyfuer.github.io/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/cyfuer.github.io/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/cyfuer.github.io/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/cyfuer.github.io/photoswipe/photoswipe.min.js"></script>
+<script src="/cyfuer.github.io/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
