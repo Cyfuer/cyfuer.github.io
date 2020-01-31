@@ -11,7 +11,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="cyfuer,"> 
-    <meta name="description" content="状态码状态码(HTTP Status Code)的职责是当客户端向服务端发送请求时，描述返回的请求结果。借助状态码，用户可以知道服务器是正确处理了请求还是出现了错误。状态码分以下5种:|      ,"> 
+    <meta name="description" content="
+状态码状态码(HTTP Status Code)的职责是当客户端向服务端发送请求时，描述返回的请求结果。借助状态码，用户可以知道服务器是正确处理了请求还是出现了错误。状态码分以下5种:
+
+
+
+
+类,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/cyfuer.github.io/img/favicon.png"> 
@@ -68,7 +74,42 @@
 
         </div>
         <div class="content markdown">
-            <h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p>状态码(HTTP Status Code)的职责是当客户端向服务端发送请求时，描述返回的请求结果。借助状态码，用户可以知道服务器是正确处理了请求还是出现了错误。状态码分以下5种:<br>|      |               类别               |          原因短语          |<br>| :–: | :——————————: | :————————: |<br>| 1XX  |  Informational（信息性状态码）   |     接收的请求正在处理     |<br>| 2XX  |      Success（成功状态码）       |      请求正常处理完毕      |<br>| 3XX  |   Redirection（重定向状态码）    | 需要进行附加操作以完成请求 |<br>| 4XX  | Client Error（客户端错误状态码） |     服务器无法处理请求     |<br>| 5XX  | Server Error（服务器错误状态码） |     服务器处理请求出错     |</p>
+            <p><img src="https://upload-images.jianshu.io/upload_images/266115-ba310f86198e7d38.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p>状态码(HTTP Status Code)的职责是当客户端向服务端发送请求时，描述返回的请求结果。借助状态码，用户可以知道服务器是正确处理了请求还是出现了错误。状态码分以下5种:</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">类别</th>
+<th align="center">原因短语</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1XX</td>
+<td align="center">Informational（信息性状态码）</td>
+<td align="center">接收的请求正在处理</td>
+</tr>
+<tr>
+<td align="center">2XX</td>
+<td align="center">Success（成功状态码）</td>
+<td align="center">请求正常处理完毕</td>
+</tr>
+<tr>
+<td align="center">3XX</td>
+<td align="center">Redirection（重定向状态码）</td>
+<td align="center">需要进行附加操作以完成请求</td>
+</tr>
+<tr>
+<td align="center">4XX</td>
+<td align="center">Client Error（客户端错误状态码）</td>
+<td align="center">服务器无法处理请求</td>
+</tr>
+<tr>
+<td align="center">5XX</td>
+<td align="center">Server Error（服务器错误状态码）</td>
+<td align="center">服务器处理请求出错</td>
+</tr>
+</tbody></table>
 <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><ul>
 <li>1xx: 信息</li>
 </ul>
@@ -87,11 +128,10 @@
 <td align="center">101 Switching Protocols</td>
 <td align="center">服务器转换协议：服务器将遵从客户的请求转换到另外一种协议。</td>
 </tr>
-<tr>
-<td align="center">* 2xx: 成功</td>
-<td align="center"></td>
-</tr>
 </tbody></table>
+<ul>
+<li>2xx: 成功</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -290,7 +330,7 @@
 </tr>
 </tbody></table>
 <h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><hr>
-<h5 id="1XX"><a href="#1XX" class="headerlink" title="1XX"></a>1XX</h5><p>这一类型的状态码，代表请求已被接受，需要继续处理。这类响应是临时响应，只包含状态行和某些可选的响应头信息，并以空行结束。由于 HTTP/1.0 协议中没有定义任何 1xx 状态码，所以除非在某些试验条件下，服务器禁止向此类客户端发送 1xx 响应。</p>
+<h5 id="1XX-信息"><a href="#1XX-信息" class="headerlink" title="1XX 信息"></a>1XX 信息</h5><p>这一类型的状态码，代表请求已被接受，需要继续处理。这类响应是临时响应，只包含状态行和某些可选的响应头信息，并以空行结束。由于 HTTP/1.0 协议中没有定义任何 1xx 状态码，所以除非在某些试验条件下，服务器禁止向此类客户端发送 1xx 响应。</p>
 <ul>
 <li><p>100 Continue<br>客户端应当继续发送请求。<br>这个临时响应是用来通知客户端它的部分请求已经被服务器接收，且仍未被拒绝。客户端应当继续发送请求的剩余部分，或者如果请求已经完成，忽略这个响应。服务器必须在请求完成后向客户端发送一个最终响应。</p>
 </li>
@@ -300,7 +340,7 @@
 </li>
 </ul>
 <hr>
-<h5 id="2XX"><a href="#2XX" class="headerlink" title="2XX"></a>2XX</h5><p>这一类型的状态码，代表请求已成功被服务器接收、理解、并接受。</p>
+<h5 id="2XX-成功"><a href="#2XX-成功" class="headerlink" title="2XX 成功"></a>2XX 成功</h5><p>这一类型的状态码，代表请求已成功被服务器接收、理解、并接受。</p>
 <ul>
 <li><p>200 OK<br>请求成功。</p>
 </li>
@@ -340,7 +380,7 @@
 </li>
 </ul>
 <hr>
-<h5 id="请求错误"><a href="#请求错误" class="headerlink" title="请求错误"></a>请求错误</h5><p>这类的状态码代表了客户端看起来可能发生了错误，妨碍了服务器的处理。除非响应的是一个 HEAD 请求，否则服务器就应该返回一个解释当前错误状况的实体，以及这是临时的还是永久性的状况。这些状态码适用于任何请求方法。浏览器应当向用户显示任何包含在此类错误响应中的实体内容。</p>
+<h5 id="4XX-客户端错误"><a href="#4XX-客户端错误" class="headerlink" title="4XX 客户端错误"></a>4XX 客户端错误</h5><p>这类的状态码代表了客户端看起来可能发生了错误，妨碍了服务器的处理。除非响应的是一个 HEAD 请求，否则服务器就应该返回一个解释当前错误状况的实体，以及这是临时的还是永久性的状况。这些状态码适用于任何请求方法。浏览器应当向用户显示任何包含在此类错误响应中的实体内容。</p>
 <p>如果错误发生时客户端正在传送数据，那么使用TCP的服务器实现应当仔细确保在关闭客户端与服务器之间的连接之前，客户端已经收到了包含错误信息的数据包。如果客户端在收到错误信息后继续向服务器发送数据，服务器的TCP栈将向客户端发送一个重置数据包，以清除该客户端所有还未识别的输入缓冲，以免这些数据被服务器上的应用程序读取并干扰后者。</p>
 <ul>
 <li><p>400 Bad Request<br>1、语义有误，当前请求无法被服务器理解。除非进行修改，否则客户端不应该重复提交这个请求。<br>2、请求参数有误。</p>
@@ -381,7 +421,7 @@
 </li>
 </ul>
 <hr>
-<h5 id="服务器错误"><a href="#服务器错误" class="headerlink" title="服务器错误"></a>服务器错误</h5><p>这类状态码代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。除非这是一个HEAD 请求，否则服务器应当包含一个解释当前错误状态以及这个状况是临时的还是永久的解释信息实体。浏览器应当向用户展示任何在当前响应中被包含的实体。</p>
+<h5 id="5XX-服务器错误"><a href="#5XX-服务器错误" class="headerlink" title="5XX 服务器错误"></a>5XX 服务器错误</h5><p>这类状态码代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。除非这是一个HEAD 请求，否则服务器应当包含一个解释当前错误状态以及这个状况是临时的还是永久的解释信息实体。浏览器应当向用户展示任何在当前响应中被包含的实体。</p>
 <p>这些状态码适用于任何响应方法。</p>
 <ul>
 <li><p>500 Internal Server Error<br>服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。一般来说，这个问题都会在服务器端的源代码出现错误时出现。</p>
