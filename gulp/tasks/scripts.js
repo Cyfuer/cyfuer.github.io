@@ -41,20 +41,24 @@ function scripts (entry, output, message) {
   return bundle();
 }
 
-gulp.task('scripts:3D', function () {
+const scripts3D = function (cb) {
   scripts(
     './app/src/js/main3D.js',
     './app/dist/js/3D/main.js',
     'Scripts 3D'
   );
-});
+  cb();
+}
 
-gulp.task('scripts:2D', function () {
+const scripts2D = function (cb) {
   scripts(
     './app/src/js/main2D.js',
     './app/dist/js/2D/main.js',
     'Scripts 2D'
   );
-});
+  cb();
+}
 
-gulp.task('scripts', ['scripts:2D', 'scripts:3D']);
+exports.scripts3D = scripts3D;
+exports.scripts2D = scripts2D;
+exports.scripts = gulp.series(scripts2D, scripts3D);

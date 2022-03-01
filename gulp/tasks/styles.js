@@ -17,7 +17,7 @@ function styles (input, output, message) {
 
   function process () {
     gulp.src(input)
-      .pipe(less().on('error', function (error) {
+      .pipe(less({javascriptEnabled: true}).on('error', function (error) {
         gutil.log('Less error', error);
         gutil.beep();
         notify({ title: message, message: 'Error', sound: 'Basso' });
@@ -36,20 +36,24 @@ function styles (input, output, message) {
   }
 }
 
-gulp.task('styles:3D', function () {
+const styles3D = function(cb) {
   styles(
     './app/src/less/main3D.less',
     './app/dist/css/3D/main.css',
     'Styles 3D'
   );
-});
+  cb();
+}
 
-gulp.task('styles:2D', function () {
+const styles2D = function(cb) {
   styles(
     './app/src/less/main2D.less',
     './app/dist/css/2D/main.css',
     'Styles 2D'
   );
-});
+  cb();
+}
 
-gulp.task('styles', ['styles:2D', 'styles:3D']);
+exports.styles3D = styles3D;
+exports.styles2D = styles2D;
+exports.styles = gulp.series(styles2D, styles3D);

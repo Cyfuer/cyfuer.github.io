@@ -6,10 +6,9 @@ var minify = require('gulp-htmlmin');
 var uglify = require('gulp-uglify');
 var notify = require('gulp-notify');
 
-var pkg = require('../utils/pkg');
+var pkg = require('../utils/pkg.js');
 
-gulp.task('html', function () {
-
+exports.html = function (cb) {
   gulp.src([
       './app/src/**/*.html',
       '!./app/src/{vendor,vendor/**}'
@@ -35,4 +34,5 @@ gulp.task('html', function () {
           .pipe(notify({ title: 'Html', message: 'Success', sound: 'Morse' }));
       });
   }
-});
+  cb();
+}

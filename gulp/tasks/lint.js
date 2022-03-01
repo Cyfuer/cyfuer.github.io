@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 
-gulp.task('lint', function () {
+exports.lint = function () {
   return gulp.src([
       './app/src/js/**/*.js',
       '!app/src/js/utils/noiseUtil.js',
@@ -12,4 +12,4 @@ gulp.task('lint', function () {
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(jshint.reporter('fail'));
-});
+};

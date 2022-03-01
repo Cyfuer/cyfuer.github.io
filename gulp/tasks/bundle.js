@@ -19,20 +19,24 @@ function bundle (entries, output, title) {
 
 }
 
-gulp.task('bundle:3D', function () {
+const bundle3D = function (cb) {
   bundle(
     ['./app/dist/js/3D/vendor.js', './app/dist/js/3D/main.js'],
     './app/dist/js/3D/bundle.js',
     'Bundle 3D'
   );
-});
+  cb();
+}
 
-gulp.task('bundle:2D', function () {
+const bundle2D = function (cb) {
   bundle(
     ['./app/dist/js/2D/vendor.js', './app/dist/js/2D/main.js'],
     './app/dist/js/2D/bundle.js',
     'Bundle 2D'
   );
-});
+  cb();
+}
 
-gulp.task('bundle', ['bundle:2D', 'bundle:3D']);
+exports.bundle3D = bundle3D;
+exports.bundle2D = bundle2D;
+exports.bundle = gulp.series(bundle3D, bundle2D);

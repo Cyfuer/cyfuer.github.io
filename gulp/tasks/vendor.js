@@ -33,7 +33,7 @@ function vendor (dependencies, output, message) {
     .pipe(notify({ title: message, message: 'Success', sound: 'Morse' }));
 }
 
-gulp.task('vendor:3D', function () {
+const vendor3D = function(cb) {
   vendor(
     [
       'jquery',
@@ -49,9 +49,10 @@ gulp.task('vendor:3D', function () {
     './app/dist/js/3D/vendor.js',
     'Vendor 3D'
   );
-});
+  cb();
+}
 
-gulp.task('vendor:2D', function () {
+const vendor2D = function(cb) {
   vendor(
     [
       'jquery',
@@ -63,6 +64,9 @@ gulp.task('vendor:2D', function () {
     './app/dist/js/2D/vendor.js',
     'Vendor 2D'
   );
-});
+  cb();
+}
 
-gulp.task('vendor', ['vendor:2D', 'vendor:3D']);
+exports.vendor2D = vendor2D;
+exports.vendor3D = vendor3D;
+exports.vendor = gulp.series(vendor2D, vendor3D);
