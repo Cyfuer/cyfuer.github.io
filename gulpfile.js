@@ -6,6 +6,8 @@ const { bundle } = require('./gulp/tasks/bundle.js')
 const { serve } = require('./gulp/tasks/serve.js')
 
 
+exports.default = gulp.series(build, bundle);
+
 exports.build = function (cb) {
     build(cb);
 }
