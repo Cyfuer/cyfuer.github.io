@@ -107,14 +107,14 @@ jQuery(function () {
     dropSection,
     ballSection,
     flowSection,
-    neonsSection,
+    // neonsSection,
     heightSection,
     waveSection,
-    faceSection,
+    // faceSection,
     rocksSection,
-    galaxySection,
-    gravitySection,
-    citySection,
+    // galaxySection,
+    // gravitySection,
+    // citySection,
     endSection
   ]);
 
@@ -160,7 +160,9 @@ jQuery(function () {
       flowSection.fieldIn();
       flowSection.start();
 
-      neonsSection.smokeStart();
+      // neonsSection.smokeStart();
+
+      heightSection.show();
     }
     else if (to === 'neons') {
       flowSection.fieldIn();
@@ -175,7 +177,7 @@ jQuery(function () {
       flowSection.fieldIn();
       flowSection.start();
 
-      neonsSection.smokeStart();
+      // neonsSection.smokeStart();
 
       heightSection.show();
       heightSection.in();
@@ -186,6 +188,8 @@ jQuery(function () {
 
       waveSection.in(way);
       waveSection.start();
+
+      rocksSection.show();
     }
     else if (to === 'face') {
       faceSection.in();
@@ -212,6 +216,8 @@ jQuery(function () {
       gravitySection.start();
     }
     else if (to === 'end') {
+      rocksSection.show();
+
       endSection.in();
     }
 
@@ -304,7 +310,7 @@ jQuery(function () {
     }
     else if (from === 'flow') {
       if (to !== 'neons' && to !== 'height') {
-        neonsSection.smokeStop();
+        // neonsSection.smokeStop();
       }
 
       if (to !== 'ball' && to !== 'neons' && to !== 'height') {
@@ -383,7 +389,7 @@ jQuery(function () {
   });
 
   SCENE.on('section:didClick', function () {
-    
+
   });
 
   SCENE.on('end', function () {
