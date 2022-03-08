@@ -8,7 +8,7 @@ var Drop = require('../objects3D/DropObject3D');
 var dropSection = new Section('drop');
 
 var drop = new Drop({ amplitude: 4 });
-drop.el.rotation.x = -1.2;
+drop.el.rotation.x = -0.3;
 drop.el.position.y = -10;
 dropSection.add(drop.el);
 

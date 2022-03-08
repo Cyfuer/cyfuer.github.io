@@ -5,6 +5,7 @@ var THREE = require('three');
 var TweenLite = require('tweenlite');
 
 var loop = require('../utils/loopUtil');
+var yoyo = require('../utils/yoyoUtil');
 
 /**
  * Animated water ripple
@@ -27,48 +28,42 @@ function Drop (options) {
   var caches = [];
   var idleTweens = [];
 
-  for (var i = 0; i < this.parameters.count; i++) {
-    var planeCopy = plane.clone();
-    planeCopy.material = planeCopy.material.clone();
+  // for (var i = 0; i < this.parameters.count; i++) {
+  //   var planeCopy = plane.clone();
+  //   planeCopy.material = planeCopy.material.clone();
 
-    var tween = this.getTween(planeCopy, i);
-    var cache = { duration: (10 + i) / 10, z: (this.parameters.count - i) * 5 };
+  //   var tween = this.getTween(planeCopy, i);
+  //   var cache = { duration: (10 + i) / 10, z: (this.parameters.count - i) * 5 };
 
-    group.add(planeCopy);
-    caches.push(cache);
-    idleTweens.push(tween);
-  }
+  //   group.add(planeCopy);
+  //   caches.push(cache);
+  //   idleTweens.push(tween);
+  // }
+
+  const geometry = new THREE.TorusGeometry( 16, 0.6, 16, 100 );
+  const material = new THREE.MeshBasicMaterial( { color: 0x323232 } );
+  const torus = new THREE.Mesh( geometry, material );
+  torus.position.set(0, 8, -8);
+  torus.rotation.set(-1.2, -0.08, 0);
+  group.add(torus);
+  
 
   this.el = group;
 
   this.in = function () {
-    for (var i = 0, j = group.children.length; i < j; i++) {
-      var el = group.children[i];
-      var cache = caches[i];
-      TweenLite.to(el.position, cache.duration, { z: 0 });
-    }
+    
   };
 
   this.out = function (way) {
     var factor = way === 'up' ? 1 : -1;
-
-    for (var i = 0, j = group.children.length; i < j; i++) {
-      var el = group.children[i];
-      var cache = caches[i];
-      TweenLite.to(el.position, cache.duration, { z: factor * cache.z });
-    }
   };
 
   this.start = function () {
-    for (var i = 0, j = idleTweens.length; i < j; i++) {
-      idleTweens[i].resume();
-    }
+
   };
 
   this.stop = function () {
-    for (var i = 0, j = idleTweens.length; i < j; i++) {
-      idleTweens[i].pause();
-    }
+    
   };
 }
 
