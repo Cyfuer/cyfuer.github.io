@@ -6,16 +6,22 @@ var Beam = require('../objects3D/BeamObject3D');
 
 var beamsSection = new Section('beams');
 
-var leftBeam = new Beam({ color: '#808080', delay: 0.2 });
-leftBeam.el.position.set(15, 25, -10);
+var leftBeam = new Beam({ color: '#808080', delay: 0.25 });
+var leftBeamX = 15;
+leftBeam.el.position.set(leftBeamX, 25, -10);
+leftBeam.initialX = leftBeamX;
 beamsSection.add(leftBeam.el);
 
 var middleBeam = new Beam({ color: '#ffffff', width: 4, cubeSize: 1, delay: 0.1 });
+var middleBeamX = 0;
 middleBeam.el.position.y = 15;
+middleBeam.initialX = middleBeamX;
 beamsSection.add(middleBeam.el);
 
-var rightBeam = new Beam({ color: '#4c4c4c', delay: 0.4 });
+var rightBeam = new Beam({ color: '#4c4c4c', delay: 0.3 });
+var rightBeamX = -20;
 rightBeam.el.position.set(-20, 30, -20);
+rightBeam.initialX = rightBeamX;
 beamsSection.add(rightBeam.el);
 
 leftBeam.el.visible = false;

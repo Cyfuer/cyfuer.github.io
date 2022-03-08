@@ -117,11 +117,11 @@ function Beam (options) {
   group.add(cubeGroup);
 
   // animations
-  var cache = { y: (height / 2) + (width / 2) };
+  var cache = { y: (height / 2) + (width / 2), x: 0};
 
   function positionUpdate () {
     /*jshint validthis: true */
-    
+    console.log(this.target);
     var extremity = this.target.y - (width /2);
 
     lineGeometry.vertices[1].y = extremity;
@@ -136,6 +136,8 @@ function Beam (options) {
 
     flareMesh.position.y = extremity;
     cubeGroup.position.y = extremity;
+
+    group.position.x = this.target.x;
   }
 
   var idleTweens = {
@@ -168,16 +170,32 @@ function Beam (options) {
   };
 
   this.el = group;
+  this.initialX = 0;
 
   var delay = parameters.delay;
 
   this.in = function () {
-    TweenLite.to(cache, 1, { y: -5, delay: delay, onUpdate: positionUpdate });
+    TweenLite.to(cache, 1, { y: -5, x: this.initialX, delay: delay, onUpdate: positionUpdate });
   };
 
   this.out = function (way) {
-    var y = way === 'up' ? ((height / 2) + (width / 2)) - 1 : -70;
-    TweenLite.to(cache, 1, { y: y, delay: delay, onUpdate: positionUpdate });
+    var y = 0
+    var x = 0
+    if (way === 'up') {
+      y = ((height / 2) + (width / 2)) - 1;
+      x = this.initialX;
+    } else {
+      y = -70;
+      if (this.el.position.x < 0) {
+        y += 6;
+        x = this.initialX / 4;
+      } else if (this.el.position.x > 0) {
+        y += 12
+        x = this.initialX / 4;
+      }
+      
+    }
+    TweenLite.to(cache, 1, { x: x, y: y, delay: delay, onUpdate: positionUpdate });
   };
 
   this.start = function () {
