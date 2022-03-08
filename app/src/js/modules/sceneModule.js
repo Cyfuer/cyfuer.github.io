@@ -133,7 +133,15 @@ var SCENE = (function () {
         }
       }
 
+      function onMouseClick (event) {
+        if (!isScrolling) {
+          var data = sections[currentIndex];
+          events.trigger('section:didClick', data);
+        }
+      }
+
       $viewport.on('DOMMouseScroll mousewheel', onScroll);
+      $viewport.on('click', onMouseClick);
       jQuery(document).on('keydown', onKeyDown);
     }
 

@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title> Hello I'm V </title>
+  <title> Hello I'm Cyfuer </title>
   <link rel="image_src" href="http://vaalentin.github.io/2015/app/public/img/preview.jpg" />
   <meta name="description" content="A french Creative / Front end developer who loves to experiment, iterate and build premium experiences." />
   <link rel="apple-touch-icon" sizes="57x57" href="./app/public/favicons/apple-touch-icon-57x57.png">
@@ -37,13 +37,11 @@
       /* jshint laxbreak: true */
 
       // disable console
-      console.log('That\'s probably what you\'re looking for! https://github.com/vaalentin/2015');
-
-      if (!window.console) { window.console = {}; }
-      var methods = ['log', 'debug', 'warn', 'info'];
-      for (var i = 0; i < methods.length; i++){
-        console[methods[i]] = function () {};
-      }
+      // if (!window.console) { window.console = {}; }
+      // var methods = ['log', 'debug', 'warn', 'info'];
+      // for (var i = 0; i < methods.length; i++){
+      //   console[methods[i]] = function () {};
+      // }
 
       // features
       function mobile () {
@@ -185,10 +183,15 @@
         </div>
 
         <div class="menu__items">
-          <a class="menu__item menu__items--3D" data-button="sounds"> MUTE </a>
-          <a class="menu__item menu__items--3D" data-button="help"> HELP </a>
-          <a class="menu__item placeholder--email"> CONTACT </a>
-          <a class="menu__item menu__items--3D" data-button="quality"> QUALITY 0.5 </a>
+          <a class="menu__item menu__items--3D" data-button="home"> 首页 </a>
+          <a class="menu__item menu__items--3D" data-button="blog"> 博客 </a>
+          <a class="menu__item menu__items--3D" data-button="book"> 书单 </a>
+          <a class="menu__item menu__items--3D" data-button="message"> 留言 </a>
+          <a class="menu__item menu__items--3D" data-button="me"> 关于我 </a>
+          <a class="menu__item menu__items--3D menu__item__tool" data-button="sounds"> 静音 </a>
+          <!-- <a class="menu__item placeholder--email"> 联系 </a> -->
+          <a class="menu__item menu__items--3D menu__item__tool" data-button="quality"> 流畅 </a>
+          <a class="menu__item menu__items--3D menu__item__tool" data-button="help"> 帮助 </a>
         </div>
       </div>
 
@@ -214,6 +217,8 @@
           <div class="trigger__info__bg trigger__info__bg--tails"></div>
         </div>
       </div>
+
+      <div class="heads__contents"></div>
 
       <div class="heads__sections">
         <div class="heads__section heads__section--hello">

@@ -73,7 +73,7 @@ jQuery(function () {
 
     if (name === 'sounds') {
       SOUNDS.toggle();
-      $el.html(SOUNDS.isMuted() ? 'UNMUTE' : 'MUTE');
+      $el.html(SOUNDS.isMuted() ? '取消静音' : '静音');
     }
     else if (name === 'help') {
       help.in();
@@ -83,10 +83,10 @@ jQuery(function () {
       var quality;
 
       if (SCENE.getQuality() === 0.5) {
-        text = 'QUALITY 1';
+        text = '高清';
         quality = 1;
       } else {
-        text = 'QUALITY 0.5';
+        text = '流畅';
         quality = 0.5;
       }
 
@@ -380,6 +380,10 @@ jQuery(function () {
         gravitySection.hide();
       }
     }
+  });
+
+  SCENE.on('section:didClick', function () {
+    
   });
 
   SCENE.on('end', function () {
