@@ -11,8 +11,8 @@ var title = new Title();
 helloSection.add(title.el);
 
 var smoke = new Smoke({  
-  frontColor: '#4c4c4c',
-  backColor: '#ffffff',
+  frontColor: '#2c2c2c',
+  backColor: '#a6a6a6',
   layers: 3,
   data: [
     { positionX : 10.7, positionY: 3.9, positionZ: 17.8, rotationZ: 2.7, scale: 3.9 },
