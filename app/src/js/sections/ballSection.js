@@ -60,7 +60,6 @@ ballSection.onIn(function () {
 });
 
 ballSection.onOut(function (way) {
-  text.out(way);
   grid.out(way);
   textCh.out(way);
   textEn.out(way);
