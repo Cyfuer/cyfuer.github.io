@@ -13,12 +13,15 @@ var THREE = require('three');
 function Section (name) {
   this.name = name;
   this.playing = false;
+  this.retracted = false;
 
   var fn = function () {};
   this._in = fn;
   this._out = fn;
   this._start = fn;
   this._stop = fn;
+  this._retract = fn;
+  this._tract = fn;
 
   this.el = new THREE.Object3D();
 }
@@ -83,6 +86,41 @@ Section.prototype.stop = function () {
   this.playing = false;
 };
 
+
+
+
+/**
+ * Retract the section
+ *
+ * @method retract
+ */
+ Section.prototype.retract = function () {
+  if (this.retracted) {
+    return false;
+  }
+
+  this._retract();
+
+  this.retracted = true;
+};
+
+/**
+ * Tract the section
+ *
+ * @method tract
+ */
+Section.prototype.tract = function () {
+  if (!this.retracted) {
+    return false;
+  }
+
+  this._tract();
+
+  this.retracted = false;
+};
+
+
+
 /**
  * Pass the in handler
  *
@@ -121,6 +159,26 @@ Section.prototype.onStart = function (callback) {
  */
 Section.prototype.onStop = function (callback) {
   this._stop = callback;
+};
+
+/**
+ * Pass the retract handler
+ *
+ * @method onRetract
+ * @param {Function} [callback]
+ */
+ Section.prototype.onRetract = function (callback) {
+  this._retract = callback;
+};
+
+/**
+ * Pass the stop handler
+ *
+ * @method onTract
+ * @param {Function} [callback]
+ */
+Section.prototype.onTract = function (callback) {
+  this._tract = callback;
 };
 
 module.exports = Section;
