@@ -340,7 +340,7 @@ jQuery(function () {
       }
 
       if (to !== 'flow' && to !== 'neons') {
-        neonsSection.smokeStop();
+        // neonsSection.smokeStop();
       }
 
       if (to !== 'ball' && to !== 'flow' && to !== 'neons') {
