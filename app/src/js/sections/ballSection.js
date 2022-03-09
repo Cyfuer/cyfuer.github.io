@@ -22,18 +22,32 @@ grid.el.rotation.set(1.5, 1, 2);
 grid.el.position.x = -20;
 ballSection.add(grid.el);
 
-var text = new TextPanel(
-  'G  I  V  E \n S  H  A  P  E',
+var textCh = new TextPanel(
+  '阅 读',
   {
-    align: 'left',
+    font: 'Arial',
+    align: 'right',
     style: '',
     size: 50,
     lineSpacing: 40
   }
 );
-text.el.position.set(15, 0, 15);
-text.el.rotation.y = -0.4;
-ballSection.add(text.el);
+textCh.el.position.set(15, 0, 15);
+textCh.el.rotation.set(0, -0.4, 0);
+ballSection.add(textCh.el);
+
+var textEn = new TextPanel(
+  'READING MATTER',
+  {
+    align: 'right',
+    style: '',
+    size: 16,
+    lineSpacing: 40
+  }
+);
+textEn.el.position.set(24, -2.6, 0);
+textEn.el.rotation.set(0, -0.4, 0);
+ballSection.add(textEn.el);
 
 ball.el.visible = false;
 grid.el.visible = false;
@@ -41,12 +55,15 @@ grid.el.visible = false;
 ballSection.onIn(function () {
   ball.in();
   grid.in();
-  text.in();
+  textCh.in();
+  textEn.in();
 });
 
 ballSection.onOut(function (way) {
   text.out(way);
   grid.out(way);
+  textCh.out(way);
+  textEn.out(way);
 
   if (way === 'up') {
     ball.out();

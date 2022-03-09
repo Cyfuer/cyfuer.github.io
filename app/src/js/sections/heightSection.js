@@ -13,35 +13,54 @@ var heightMap = new HeightMap({
   plane: false,
   points: false,
   maps: [
+    { name: 'D', url: './app/public/img/heightMap-D.jpg' },
+    { name: 'R', url: './app/public/img/heightMap-R.jpg' },
+    { name: 'E', url: './app/public/img/heightMap-E.jpg' },
     { name: 'A', url: './app/public/img/heightMap-A.jpg' },
-    { name: 'B', url: './app/public/img/heightMap-B.jpg' },
-    { name: 'O', url: './app/public/img/heightMap-O.jpg' }
+    { name: 'M', url: './app/public/img/heightMap-M.jpg' }
   ]
 });
 heightMap.el.position.z = -10;
 heightMap.el.rotation.y = -0.6;
 heightSection.add(heightMap.el);
 
-var text = new TextPanel(
-  'L  E  T    I  T \n M  O  R  P  H',
+var textCh = new TextPanel(
+  '我 的 项 目',
   {
+    font: 'Arial',
     align: 'right',
     style: '',
     size: 50,
-    lineSpacing: 40,
+    lineSpacing: 40
   }
 );
-text.el.position.set(-20, 0, 0);
-heightSection.add(text.el);
+textCh.el.position.set(-20, 0, 0);
+textCh.el.rotation.set(0, 0, 0);
+heightSection.add(textCh.el);
+
+var textEn = new TextPanel(
+  'MY PROJECT',
+  {
+    align: 'right',
+    style: '',
+    size: 16,
+    lineSpacing: 40
+  }
+);
+textEn.el.position.set(-16.9, -2.2, 0);
+textEn.el.rotation.set(0, 0, 0);
+heightSection.add(textEn.el);
 
 heightMap.el.visible = false;
 
 heightSection.onIn(function () {
-  text.in();
+  textCh.in();
+  textEn.in();
 });
 
 heightSection.onOut(function (way) {
-  text.out(way);
+  textCh.out(way);
+  textEn.out(way);
 });
 
 heightSection.onStart(function () {

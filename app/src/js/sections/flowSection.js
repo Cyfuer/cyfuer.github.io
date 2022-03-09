@@ -21,18 +21,33 @@ var field = new FlowField(points, {
 });
 flowSection.add(field.el);
 
-var text = new TextPanel(
-  'F  O  L  L  O  W \n T  H  E    T  R  E  N  D  S',
+var textCh = new TextPanel(
+  '过 往 项 目',
   {
-    align: 'center',
+    font: 'Arial',
+    align: 'right',
     style: '',
     size: 50,
     lineSpacing: 40
   }
 );
-text.el.position.z = -10;
-text.el.rotation.y = 0.4;
-flowSection.add(text.el);
+textCh.el.position.set(0, 0, -10);
+textCh.el.rotation.set(0, 0.4, 0);
+flowSection.add(textCh.el);
+
+var textEn = new TextPanel(
+  'PAST PROJUCTS',
+  {
+    align: 'right',
+    style: '',
+    size: 16,
+    lineSpacing: 40
+  }
+);
+textEn.el.position.set(1.8, -2.4, -10);
+textEn.el.rotation.set(0, 0.4, 0);
+flowSection.add(textEn.el);
+
 
 field.el.visible = false;
 
@@ -49,11 +64,13 @@ flowSection.fieldIn = function () {
 };
 
 flowSection.onIn(function () {
-  text.in();
+  textCh.in();
+  textEn.in();
 });
 
 flowSection.onOut(function (way) {
-  text.out(way);
+  textCh.out(way);
+  textEn.out(way);
 });
 
 flowSection.onStart(function () {

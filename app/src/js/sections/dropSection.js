@@ -12,28 +12,45 @@ drop.el.rotation.x = -0.3;
 drop.el.position.y = -10;
 dropSection.add(drop.el);
 
-var text = new TextPanel(
-  'F  R  O  M \n A N   I D E A',
+var textCh = new TextPanel(
+  '区 块 链',
   {
-    align: 'right',
+    font: 'Arial',
+    align: 'left',
     style: '',
     size: 50,
     lineSpacing: 40
   }
 );
-text.el.position.set(-10, 8, 0);
-dropSection.add(text.el);
+textCh.el.position.set(-5.2, -5.6, -4);
+textCh.el.rotation.set(0, 0, 0.1);
+dropSection.add(textCh.el);
+
+var textEn = new TextPanel(
+  'BLOCKCHAIN TECHNOLOGY',
+  {
+    align: 'left',
+    style: '',
+    size: 16,
+    lineSpacing: 40
+  }
+);
+textEn.el.position.set(-6, -7.8, -4);
+textEn.el.rotation.set(0, 0, 0.1);
+dropSection.add(textEn.el);
 
 drop.el.visible = false;
 
 dropSection.onIn(function () {
   drop.in();
-  text.in();
+  textCh.in();
+  textEn.in();
 });
 
 dropSection.onOut(function (way) {
   drop.out(way);
-  text.out(way);
+  textCh.out(way);
+  textEn.out(way);
 });
 
 dropSection.onStart(function () {

@@ -10,28 +10,44 @@ var waveSection = new Section('wave');
 var wave = new Wave();
 waveSection.add(wave.el);
 
-var text = new TextPanel(
-  'E  Y  E  S    O  N    T  H  E \n H  O  R  I  Z  O  N',
+var textCh = new TextPanel(
+  '爱 好',
   {
+    font: 'Arial',
     align: 'center',
     style: '',
     size: 50,
     lineSpacing: 40
   }
 );
-text.el.position.y = 10;
-text.el.rotation.x = 0.2;
-waveSection.add(text.el);
+textCh.el.position.set(-11, 10, 0);
+textCh.el.rotation.set(-0.4, -0.6, 0.04);
+waveSection.add(textCh.el);
+
+var textEn = new TextPanel(
+  'INTEREST IN PAINTING',
+  {
+    align: 'center',
+    style: '',
+    size: 16,
+    lineSpacing: 40
+  }
+);
+textEn.el.position.set(-10, 7.6, 0);
+textEn.el.rotation.set(-0.4, -0.6, 0.04);
+waveSection.add(textEn.el);
 
 wave.el.visible = false;
 
 waveSection.onIn(function (way) {
-  text.in();
+  textCh.in();
+  textEn.in();
   wave.in(way);
 });
 
 waveSection.onOut(function (way) {
-  text.out(way);
+  textCh.out(way);
+  textEn.out(way);
   wave.out(way);
 });
 
