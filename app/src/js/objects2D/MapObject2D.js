@@ -88,4 +88,15 @@ Map.prototype.in = function () {
   });
 };
 
+/**
+ * Out animation
+ *
+ * @method out
+ */
+ Map.prototype.out = function () {
+  this.$nodes.each(function (i) {
+    jQuery(this).delay(i * 50).animate({ right: 0, opacity: 0 }, 500);
+  });
+};
+
 module.exports = Map;

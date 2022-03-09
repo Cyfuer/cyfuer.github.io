@@ -63,6 +63,14 @@ function Menu () {
     in: function () {
       $el.animate({ top: 0, opacity: 1 }, 500);
     },
+    out: function () {
+      $el.stop().animate({ left: 0 }, { duration: 400, easing: 'easeOutQuart' });
+      $button.stop().animate({ opacity: 0 }, 400);
+      $items.stop().animate({ opacity: 0 }, 400, function () {
+        $itemsContainer.css('display', 'none');
+        $items.off('click', _callback);
+      });
+    },
 
     onClick: function (callback) {
       _callback = callback;

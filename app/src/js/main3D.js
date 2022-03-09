@@ -389,7 +389,27 @@ jQuery(function () {
   });
 
   SCENE.on('section:didClick', function () {
+    menu.out();
+    map.out();
 
+    var current = this.sec.name;
+    if (current === 'beams') {
+
+    } else if (current === 'ball') {
+
+    } else if (current === 'flow') {
+      
+    } else if (current === 'ball') {
+      
+    } else if (current === 'height') {
+
+    } else if (current === 'wave') {
+      
+    } else if (current === 'rocks') {
+      
+    } else if (current === 'end') {
+      
+    }
   });
 
   SCENE.on('end', function () {

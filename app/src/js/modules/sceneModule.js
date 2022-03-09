@@ -135,7 +135,10 @@ var SCENE = (function () {
 
       function onMouseClick (event) {
         if (!isScrolling) {
-          var data = sections[currentIndex];
+          var data = {
+            sec: sections[currentIndex],
+            idx: currentIndex,
+          };
           events.trigger('section:didClick', data);
         }
       }
