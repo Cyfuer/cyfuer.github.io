@@ -26,7 +26,7 @@ var BackgroundLines = require('../objects3D/BackgroundLinesObject3D');
 var SCENE = (function () {
   var instance;
 
-  function init () {
+  function init() {
     // params
     var parameters = {
       fogColor: '#0a0a0a',
@@ -55,7 +55,8 @@ var SCENE = (function () {
     var isLocked = false; // used to prevent additional event when slide() called from outside
     var isActive;
     var isStarted = false;
-
+    var isUpdatingCameraPosition = false;
+  
     // camera
     var cameraCache = { speed: 0 };
     var isScrolling = false;
@@ -69,17 +70,17 @@ var SCENE = (function () {
     var totalSections;
     var currentIndex = 0;
     var previousIndex = 0;
-    
+
     // events
     var events = new Events();
 
-    function navigation () {
-      function next () {
+    function navigation() {
+      function next() {
         if (currentIndex === totalSections) {
           if (!isLocked) {
-            events.trigger('end');  
+            events.trigger('end');
           }
-          
+
           return false;
         }
 
@@ -88,7 +89,7 @@ var SCENE = (function () {
         animateCamera(currentIndex);
       }
 
-      function prev () {
+      function prev() {
         if (currentIndex === 0) {
           return false;
         }
@@ -101,8 +102,8 @@ var SCENE = (function () {
       // scroll
       var newDate;
       var oldDate = new Date();
-      
-      function onScroll (event) {
+
+      function onScroll(event) {
         newDate = new Date();
 
         var elapsed = newDate.getTime() - oldDate.getTime();
@@ -121,10 +122,10 @@ var SCENE = (function () {
         return false;
       }
 
-      function onKeyDown (event) {
+      function onKeyDown(event) {
         if (!isScrolling && isActive) {
           var keyCode = event.keyCode;
-          
+
           if (keyCode === 40) {
             next();
           } else if (keyCode === 38) {
@@ -133,7 +134,7 @@ var SCENE = (function () {
         }
       }
 
-      function onMouseClick (event) {
+      function onMouseClick(event) {
         if (!isScrolling) {
           var data = {
             sec: sections[currentIndex],
@@ -148,7 +149,7 @@ var SCENE = (function () {
       jQuery(document).on('keydown', onKeyDown);
     }
 
-    function setup () {
+    function setup() {
       if (!$viewport) {
         console.warn('set viewport first');
         return false;
@@ -176,7 +177,7 @@ var SCENE = (function () {
       camera = new THREE.PerspectiveCamera(20, width / height, 1, 4000);
       camera.position.set(0, 0, 40);
 
-      function onMouseMove (event) {
+      function onMouseMove(event) {
         mouseX = (event.clientX / window.innerWidth) * 2 - 1;
       }
 
@@ -189,7 +190,7 @@ var SCENE = (function () {
       return SCENE.getInstance();
     }
 
-    function setupBackground () {
+    function setupBackground() {
       // add background particles and lines
       // rangeY based on the size and the number of sections
       var rangeY = [
@@ -204,13 +205,16 @@ var SCENE = (function () {
       scene.add(backgroundLines.el);
     }
 
-    function draw () {
+    function draw() {
       SPRITE3D.update();
       render();
       frameId = window.requestAnimationFrame(draw);
     }
 
-    function render () {
+    function render() {
+      // if (!isUpdatingCameraPosition) {
+        
+      // }
       // camera noise
       camera.position.y += Math.cos(cameraShakeY) / 50;
       cameraShakeY += 0.02;
@@ -221,7 +225,7 @@ var SCENE = (function () {
       renderer.render(scene, camera);
     }
 
-    function onResize () {
+    function onResize() {
       width = $viewport.width();
       height = $viewport.height();
 
@@ -231,13 +235,13 @@ var SCENE = (function () {
       renderer.setSize(width * resolution, height * resolution);
     }
 
-    function animateCamera (index) {
+    function animateCamera(index) {
       // in case goTo is called
       // otherwise navigation set currentIndex
       currentIndex = index;
 
       var nextPosition = index * -parameters.sectionHeight;
-      
+
       // which way are we animating?
       var way = index < previousIndex ? -1 : 1;
 
@@ -254,7 +258,8 @@ var SCENE = (function () {
         way: way === -1 ? 'up' : 'down'
       };
 
-      TweenLite.to(camera.position, 1.5, { y: nextPosition, ease: window.Quart.easeInOut,
+      TweenLite.to(camera.position, 1.5, {
+        y: nextPosition, ease: window.Quart.easeInOut,
         onStart: function () {
           isScrolling = true;
           SOUNDS.wind.play();
@@ -464,7 +469,7 @@ var SCENE = (function () {
        */
       in: function () {
         TweenLite.to({ fov: 200, speed: 0 }, 2, {
-          bezier: { type: 'soft', values: [{ speed: 20 }, { speed: 0 }]},
+          bezier: { type: 'soft', values: [{ speed: 20 }, { speed: 0 }] },
           fov: 60,
           ease: 'easeOutCubic',
           onUpdate: function () {
@@ -473,7 +478,38 @@ var SCENE = (function () {
             camera.updateProjectionMatrix();
           }
         });
-      }
+      },
+
+      retract: function (x, y, z) {
+        TweenLite.to(camera.position, 1, { x: x, y: y, z: z, 
+          onStart: function () {
+            // isUpdatingCameraPosition = true;
+            // events.trigger('section:retractBegin', data);
+          },
+          onComplete: function () { 
+            // isUpdatingCameraPosition = false;
+            // events.trigger('section:retractComplete', data);
+          }
+        });
+      },
+
+      tract: function () {
+        var data = {
+          sec: sections[currentIndex],
+          idx: currentIndex,
+        };
+        TweenLite.to(camera.position, 1, {
+          x: 0, y: currentIndex * -parameters.sectionHeight, z: 40, 
+          onStart: function () {
+            // isUpdatingCameraPosition = true;
+            // events.trigger('section:tractBegin', data);
+          },
+          onComplete: function () {
+            // isUpdatingCameraPosition = false;
+            // events.trigger('section:tractComplete', data);
+          }
+        });
+      },
     };
   }
 

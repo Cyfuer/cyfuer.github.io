@@ -65,4 +65,20 @@ dropSection.onStop(function () {
   drop.el.visible = false;
 });
 
+dropSection.onRetract(function () {
+  TweenLite.to(textCh.el.rotation, 1.5, {z: 0});
+  TweenLite.to(textEn.el.rotation, 1.5, {z: 0});
+
+  TweenLite.to(textCh.el.position, 1.5, {x: -5.2, y: -7, z: -4});
+  TweenLite.to(textEn.el.position, 1.5, {x: -6, y: -9, z: -4});
+});
+
+dropSection.onTract(function () {
+  TweenLite.to(textCh.el.rotation, 1.5, {z: 0.1});
+  TweenLite.to(textEn.el.rotation, 1.5, {z: 0.1});
+
+  TweenLite.to(textCh.el.position, 1.5, {x: -5.2, y: -5.6, z: -4});
+  TweenLite.to(textEn.el.position, 1.5, {x: -6, y: -7.8, z: -4});
+});
+
 module.exports = dropSection;

@@ -70,4 +70,19 @@ rocksSection.hide = function () {
   rocks.el.visible = false;
 };
 
+rocksSection.onRetract(function () {
+  TweenLite.to(rocks.el.position, 1.5, {x: 0, y: 30, z: -60});
+
+
+  TweenLite.to(textCh.el.position, 1.5, {x: -17, y: 7, z: -20});
+  TweenLite.to(textEn.el.position, 1.5, {x: -16, y: 4, z: -20});
+});
+
+rocksSection.onTract(function () {
+  TweenLite.to(rocks.el.position, 1.5, {x: 0, y: 0, z: 0});
+
+  TweenLite.to(textCh.el.position, 1.5, {x: -17, y: 2.4, z: -30});
+  TweenLite.to(textEn.el.position, 1.5, {x: -17, y: 0, z: -30});
+});
+
 module.exports = rocksSection;

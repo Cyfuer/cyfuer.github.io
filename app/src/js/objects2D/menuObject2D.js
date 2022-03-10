@@ -60,11 +60,15 @@ function Menu () {
   $button.one('mouseover click', onMouseover);
 
   return {
-    in: function () {
+    setup: function () {
       $el.animate({ top: 0, opacity: 1 }, 500);
     },
+    in: function () {
+      $el.animate({ left: 30 }, { duration: 400, easing: 'easeOutQuart' });
+      $button.stop().animate({ opacity: 0.5 }, 400);
+    },
     out: function () {
-      $el.stop().animate({ left: 0 }, { duration: 400, easing: 'easeOutQuart' });
+      $el.animate({ left: 0 }, { duration: 400, easing: 'easeOutQuart' });
       $button.stop().animate({ opacity: 0 }, 400);
       $items.stop().animate({ opacity: 0 }, 400, function () {
         $itemsContainer.css('display', 'none');

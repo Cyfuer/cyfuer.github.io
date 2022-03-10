@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title> Hello I'm Cyfuer </title>
   <link rel="image_src" href="http://vaalentin.github.io/2015/app/public/img/preview.jpg" />
-  <meta name="description" content="A french Creative / Front end developer who loves to experiment, iterate and build premium experiences." />
+  <meta name="description"
+    content="A french Creative / Front end developer who loves to experiment, iterate and build premium experiences." />
   <link rel="apple-touch-icon" sizes="57x57" href="./app/public/favicons/apple-touch-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="114x114" href="./app/public/favicons/apple-touch-icon-114x114.png">
   <link rel="apple-touch-icon" sizes="72x72" href="./app/public/favicons/apple-touch-icon-72x72.png">
@@ -23,6 +25,7 @@
   <meta name="msapplication-TileImage" content="./app/public/favicons/mstile-144x144.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
   <div class="loader">
     <h3 class="text--center text--white loader__title is-active"> LOADING </h3>
@@ -44,7 +47,7 @@
       // }
 
       // features
-      function mobile () {
+      function mobile() {
         return navigator.userAgent.match(/Android/i)
           || navigator.userAgent.match(/webOS/i)
           || navigator.userAgent.match(/iPhone/i)
@@ -54,12 +57,12 @@
           || navigator.userAgent.match(/Windows Phone/i);
       }
 
-      function webGL () {
+      function webGL() {
         try {
-          var canvas = document.createElement('canvas'); 
-          return !! window.WebGLRenderingContext
+          var canvas = document.createElement('canvas');
+          return !!window.WebGLRenderingContext
             && (canvas.getContext('webgl')
-            || canvas.getContext('experimental-webgl'));
+              || canvas.getContext('experimental-webgl'));
 
         } catch (e) {
           return false;
@@ -94,16 +97,10 @@
   <div class="help">
     <div class="help__quit">
       <svg xmln="http://www.w3.org/2000/svg" viewBox="0 0 25 20">
-        <line stroke="#ffffff"
-          stroke-width="1"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          x1="5.8" y1="16.7" x2="19.2" y2="3.3"></line>
-        <line stroke="#ffffff"
-          stroke-width="1"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          x1="5.8" y1="3.3" x2="19.2" y2="16.7"></line>
+        <line stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" x1="5.8" y1="16.7"
+          x2="19.2" y2="3.3"></line>
+        <line stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" x1="5.8" y1="3.3"
+          x2="19.2" y2="16.7"></line>
       </svg>
     </div>
 
@@ -125,7 +122,8 @@
               </div>
             </div>
             <p class="text--center text--white">
-              There&apos;re 2 parts on the website. Presentation and About me, you can switch between them anytime by clicking on the bottom and top part of the screen.
+              There&apos;re 2 parts on the website. Presentation and About me, you can switch between them anytime by
+              clicking on the bottom and top part of the screen.
             </p>
           </div>
         </div>
@@ -198,12 +196,8 @@
       <div class="heads__viewport">
         <div class="trigger__info trigger__info--arrow">
           <svg xmln="http://www.w3.org/2000/svg" viewBox="0 0 25 20">
-            <path fill="none"
-              stroke="#ffffff"
-              stroke-width="1"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M2.5,5L12.5 15 22.5 5"/>
+            <path fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+              d="M2.5,5L12.5 15 22.5 5" />
           </svg>
         </div>
 
@@ -219,135 +213,111 @@
       </div>
 
       <div class="heads__contents__container">
-        <div class="heads__contents"></div>
+        <div class="heads__contents">
+          <div class="heads__contents__quit">
+            <svg t="1646838229711" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+              p-id="2039" width="30" height="30">
+              <path
+                d="M512 64c-247.00852 0-448 200.960516-448 448S264.960516 960 512 960c247.00852 0 448-200.960516 448-448S759.039484 64 512 64zM694.752211 649.984034c12.480043 12.54369 12.447359 32.768069-0.063647 45.248112-6.239161 6.208198-14.399785 9.34412-22.591372 9.34412-8.224271 0-16.415858-3.135923-22.65674-9.407768l-137.60043-138.016718-138.047682 136.576912c-6.239161 6.14455-14.368821 9.247789-22.496761 9.247789-8.255235 0-16.479505-3.168606-22.751351-9.504099-12.416396-12.576374-12.320065-32.800753 0.25631-45.248112l137.887703-136.384249-137.376804-137.824056c-12.480043-12.512727-12.447359-32.768069 0.063647-45.248112 12.512727-12.512727 32.735385-12.447359 45.248112 0.063647l137.567746 137.984034 138.047682-136.575192c12.54369-12.447359 32.831716-12.320065 45.248112 0.25631 12.447359 12.576374 12.320065 32.831716-0.25631 45.248112L557.344443 512.127295 694.752211 649.984034z"
+                p-id="2040" fill="#2c2c2c"></path>
+            </svg>
+          </div>
+
+        </div>
       </div>
 
       <div class="heads__sections">
         <div class="heads__section heads__section--hello">
           <div class="part part--title hello__title">
             <h1 class="text--white text--noMargin"> HELLO </h1>
-            <h1 class="text--white text--noMargin"> <span class="placeholder--agency placeholder--agency--capital"></span> </h1>
+            <h1 class="text--white text--noMargin"> <span
+                class="placeholder--agency placeholder--agency--capital"></span> </h1>
           </div>
-          <div class="part part--smoke"
-              data-0="transform:translate3d(0px, 0px, 0px)"
-              data-800="transform:translate3d(0px, -300px, 0px)"></div>
+          <div class="part part--smoke" data-0="transform:translate3d(0px, 0px, 0px)"
+            data-800="transform:translate3d(0px, -300px, 0px)"></div>
         </div>
 
         <div class="heads__section heads__section--beams">
-          <div class="part part--beam--left"
-              data-100="transform:translate3d(0px, 120px, 0px); opacity:0"
-              data-500="opacity:0.1"
-              data-1500="transform:translate3d(0px, 0px, 0px)"></div>
-          <div class="part part--beam--center"
-              data-0="transform:translate3d(0px, -10px, 0px); opacity:0"
-              data-600="opacity:1"
-              data-1600="transform:translate3d(0px, 0px, 0px)"></div>
-          <div class="part part--beam--right"
-              data-100="transform:translate3d(0px, 50px, 0px); opacity:0"
-              data-600="opacity:0.3"
-              data-1700="transform:translate3d(0px, -50px, 0px)"></div>
+          <div class="part part--beam--left" data-100="transform:translate3d(0px, 120px, 0px); opacity:0"
+            data-500="opacity:0.1" data-1500="transform:translate3d(0px, 0px, 0px)"></div>
+          <div class="part part--beam--center" data-0="transform:translate3d(0px, -10px, 0px); opacity:0"
+            data-600="opacity:1" data-1600="transform:translate3d(0px, 0px, 0px)"></div>
+          <div class="part part--beam--right" data-100="transform:translate3d(0px, 50px, 0px); opacity:0"
+            data-600="opacity:0.3" data-1700="transform:translate3d(0px, -50px, 0px)"></div>
         </div>
 
         <div class="heads__section heads__section--drop">
-          <div class="part part--title drop__title"
-              data-1200="opacity:0"
-              data-1500="opacity:1">
+          <div class="part part--title drop__title" data-1200="opacity:0" data-1500="opacity:1">
             <h1 class="text--white text--right text--noMargin"> FROM </h1>
             <h1 class="text--white text--right text--noMargin"> AN IDEA </h1>
             </h1>
           </div>
-          <div class="part part--drop"
-              data-1000="transform:translate3d(0px, 350px, 0px); opacity:0"
-              data-1700="transform:translate3d(0px, 0px, 0px); opacity:1"></div>
+          <div class="part part--drop" data-1000="transform:translate3d(0px, 350px, 0px); opacity:0"
+            data-1700="transform:translate3d(0px, 0px, 0px); opacity:1"></div>
         </div>
 
         <div class="heads__section heads__section--ball">
-          <div class="part part--title ball__title"
-              data-1700="opacity:0"
-              data-2000="opacity:1">
+          <div class="part part--title ball__title" data-1700="opacity:0" data-2000="opacity:1">
             <h1 class="text--white text--noMargin text--left"> GIVE </h1>
             <h1 class="text--white text--noMargin text--left"> SHAPE </h1>
           </div>
-          <div class="part part--sphere"
-              data-1400="transform:translate3d(0px, -300px, 0px) rotate(60deg); opacity:0"
-              data-2800="transform:translate3d(0px, 250px, 0px) rotate(0deg); opacity:1"></div>
-          <div class="part part--grid"
-              data-1500="transform:translate3d(0px, 300px, 0px); opacity:0"
-              data-2600="transform:translate3d(0px, -200px, 0px); opacity:1"></div>
+          <div class="part part--sphere" data-1400="transform:translate3d(0px, -300px, 0px) rotate(60deg); opacity:0"
+            data-2800="transform:translate3d(0px, 250px, 0px) rotate(0deg); opacity:1"></div>
+          <div class="part part--grid" data-1500="transform:translate3d(0px, 300px, 0px); opacity:0"
+            data-2600="transform:translate3d(0px, -200px, 0px); opacity:1"></div>
         </div>
 
         <div class="heads__section heads__section--flow">
-          <div class="part part--field"
-              data-2000="transform:translate3d(0px, 200px, 0px); opacity:0"
-              data-2700="transform:translate3d(0px, 0px, 0px); opacity:1"></div>
-          <div class="part part--neons"
-              data-2200="opacity:0"
-              data-3000="opacity:1"
-              data-3500="opacity:0"></div>
-          <div class="part part--smoke flow__smoke"
-              data-2200="transform:translate3d(0px, 400px, 0px); opacity:0"
-              data-3200="transform:translate3d(0px, 0px, 0px); opacity:1"></div>
+          <div class="part part--field" data-2000="transform:translate3d(0px, 200px, 0px); opacity:0"
+            data-2700="transform:translate3d(0px, 0px, 0px); opacity:1"></div>
+          <div class="part part--neons" data-2200="opacity:0" data-3000="opacity:1" data-3500="opacity:0"></div>
+          <div class="part part--smoke flow__smoke" data-2200="transform:translate3d(0px, 400px, 0px); opacity:0"
+            data-3200="transform:translate3d(0px, 0px, 0px); opacity:1"></div>
         </div>
 
         <div class="heads__section heads__section--height">
-          <div class="part part--title height__title"
-              data-3500="opacity:0"
-              data-3800="opacity:1">
+          <div class="part part--title height__title" data-3500="opacity:0" data-3800="opacity:1">
             <h1 class="text--white text--right text--noMargin"> LET IT </h1>
             <h1 class="text--white text--right text--noMargin"> MORPH </h1>
           </div>
-          <div class="part part--height"
-              data-3000="transform:translate3d(0px, 200px, 0px); opacity:0"
-              data-4000="transform:translate3d(0px, 0px, 0px); opacity:0.5"></div>
+          <div class="part part--height" data-3000="transform:translate3d(0px, 200px, 0px); opacity:0"
+            data-4000="transform:translate3d(0px, 0px, 0px); opacity:0.5"></div>
         </div>
 
         <div class="heads__section heads__section--face">
-          <div class="part part--title face__title"
-            data-3800="opacity:0"
-            data-5000="opacity:1">
-              <h1 class="text--white text--left text--noMargin"> KEEP </h1>
-              <h1 class="text--white text--left text--noMargin"> TRYING </h1>
+          <div class="part part--title face__title" data-3800="opacity:0" data-5000="opacity:1">
+            <h1 class="text--white text--left text--noMargin"> KEEP </h1>
+            <h1 class="text--white text--left text--noMargin"> TRYING </h1>
           </div>
-          <div class="part part--face"
-              data-4000="transform:translate3d(0px, 200px, 0px); opacity:0"
-              data-5500="transform:translate3d(0px, 0px, 0px); opacity:1"></div>
+          <div class="part part--face" data-4000="transform:translate3d(0px, 200px, 0px); opacity:0"
+            data-5500="transform:translate3d(0px, 0px, 0px); opacity:1"></div>
         </div>
 
         <div class="heads__section heads__section--rocks">
-          <div class="part part--title rocks__title"
-            data-5200="opacity:0"
-            data-5800="opacity:1">
-              <h1 class="text--white text--noMargin"> KEEP </h1>
-              <h1 class="text--white text--noMargin"> LEARNING </h1>
+          <div class="part part--title rocks__title" data-5200="opacity:0" data-5800="opacity:1">
+            <h1 class="text--white text--noMargin"> KEEP </h1>
+            <h1 class="text--white text--noMargin"> LEARNING </h1>
           </div>
-          <div class="part part--rocks"
-              data-5000="transform:translate3d(0px, 200px, 0px);"
-              data-6000="transform:translate3d(0px, 100px, 0px);"></div>
+          <div class="part part--rocks" data-5000="transform:translate3d(0px, 200px, 0px);"
+            data-6000="transform:translate3d(0px, 100px, 0px);"></div>
         </div>
 
         <div class="heads__section heads__section--galaxy">
-          <div class="part part--title galaxy__title"
-            data-5900="opacity:0"
-            data-6500="opacity:1">
-              <h1 class="text--white text--noMargin"> WORK </h1>
-              <h1 class="text--white text--noMargin"> AS A TEAM </h1>
+          <div class="part part--title galaxy__title" data-5900="opacity:0" data-6500="opacity:1">
+            <h1 class="text--white text--noMargin"> WORK </h1>
+            <h1 class="text--white text--noMargin"> AS A TEAM </h1>
           </div>
-          <div class="part part--galaxy"
-            data-5800="transform:translate3d(0px, -100px, 0px); opacity:0"
+          <div class="part part--galaxy" data-5800="transform:translate3d(0px, -100px, 0px); opacity:0"
             data-6800="transform:translate3d(0px, 0px, 0px); opacity:1"></div>
         </div>
 
         <div class="heads__section heads__section--gravity">
-          <div class="part part--gravity"
-            data-6200="transform:translate3d(0px, 200px, 0px); opacity:0"
-            data-6800="transform:translate3d(0px, 0px, 0px); opacity:1"
-            ></div>
+          <div class="part part--gravity" data-6200="transform:translate3d(0px, 200px, 0px); opacity:0"
+            data-6800="transform:translate3d(0px, 0px, 0px); opacity:1"></div>
         </div>
 
         <div class="heads__section heads__section--end">
-          <div class="part part--title end__title"
-              data-7000="opacity:0"
-              data-7400="opacity:1">
+          <div class="part part--title end__title" data-7000="opacity:0" data-7400="opacity:1">
             <h1 class="text--white text--noMargin"> THANKS FOR </h1>
             <h1 class="text--white text--noMargin"> WATCHING </h1>
           </div>
@@ -359,9 +329,10 @@
 
     <div class="tails">
       <div class="tails__section tails__section--about">
-        <h1 class="tails__section__el"> HELLO <span class="placeholder--agency placeholder--agency--capital"></span> </h1>
+        <h1 class="tails__section__el"> HELLO <span class="placeholder--agency placeholder--agency--capital"></span>
+        </h1>
         <h2 class="tails__section__el text--center">
-          I'm V, a french creative / front end developer. <br/>
+          I'm V, a french creative / front end developer. <br />
           And I want to work for you.
         </h2>
         <div class="tails__section__el">
@@ -369,10 +340,13 @@
             I love to experiment, iterate and build premium experiences.
           </p>
           <p>
-            I studied graphic design for a few years, and then started coding, at first to enrich my reflection and get a better understanding of how a project is conducted, but soon for the thrill of it.
+            I studied graphic design for a few years, and then started coding, at first to enrich my reflection and get
+            a better understanding of how a project is conducted, but soon for the thrill of it.
           </p>
           <p>
-            After working in Shanghai for more than a year as a web developer, it's time for a change. I'm looking to work for an agency with curious, dynamic and innovative people, and I think <span class="placeholder--agency placeholder--agency--you"></span> can be the one for me.
+            After working in Shanghai for more than a year as a web developer, it's time for a change. I'm looking to
+            work for an agency with curious, dynamic and innovative people, and I think <span
+              class="placeholder--agency placeholder--agency--you"></span> can be the one for me.
           </p>
           <p>
             To conclude, I am a hardworker with team spirit, creative, curious, and eager to learn new things.
@@ -485,7 +459,7 @@
             Coffeescript <br>
             Typescript
           </p>
-          <p> 
+          <p>
             <span> Make life easier: </span> jQuery, Zepto, underscore.js <br>
             <span> WebGL: </span> Three.js <br>
             <span> Canvas: </span> paper.js, D3.js <br>
@@ -501,7 +475,7 @@
 
         <h2 class="tails__section__el"> HTML / CSS </h2>
         <div class="tails__section__el">
-            <p>
+          <p>
             HTML5 / CSS3 <br>
             SVG
           </p>
@@ -528,4 +502,5 @@
     <div class="trigger"></div>
   </div>
 </body>
+
 </html>

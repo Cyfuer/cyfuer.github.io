@@ -51,4 +51,14 @@ endSection.onOut(function (way) {
   field.out(way);
 });
 
+endSection.onRetract(function () {
+  TweenLite.to(textCh.el.position, 1.5, {x: 0, y: 5, z: -12});
+  TweenLite.to(textEn.el.position, 1.5, {x: 0, y: 0, z: -10});
+});
+
+endSection.onTract(function () {
+  TweenLite.to(textCh.el.position, 1.5, {x: 0, y: 0, z: 0});
+  TweenLite.to(textEn.el.position, 1.5, {x: 0, y: -3.8, z: 0});
+});
+
 module.exports = endSection;

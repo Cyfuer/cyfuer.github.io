@@ -87,4 +87,12 @@ heightSection.hide = function () {
   heightMap.el.visible = false;
 };
 
+heightSection.onRetract(function () {
+  TweenLite.to(heightMap.el.position, 1.5, {x: 16, y: 8, z: -30});
+});
+
+heightSection.onTract(function () {
+  TweenLite.to(heightMap.el.position, 1.5, {x: 0, y: 0, z: -10});
+});
+
 module.exports = heightSection;

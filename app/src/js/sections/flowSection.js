@@ -85,4 +85,15 @@ flowSection.onStop(function () {
   field.el.visible = false;
 });
 
+flowSection.onRetract(function () {
+  TweenLite.to(textCh.el.position, 1.5, {x: -19, y: 10, z: -7});
+  TweenLite.to(textEn.el.position, 1.5, {x: -17, y: 6, z: -8});
+  
+});
+
+flowSection.onTract(function () {
+  TweenLite.to(textCh.el.position, 1.5, {x: 0, y: 0, z: -10});
+  TweenLite.to(textEn.el.position, 1.5, {x: 1.8, y: -2.4, z: -10});
+});
+
 module.exports = flowSection;

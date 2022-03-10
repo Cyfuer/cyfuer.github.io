@@ -63,7 +63,7 @@ jQuery(function () {
     TweenLite.delayedCall(0.8, SCENE.in);
     TweenLite.delayedCall(1.5, function () {
       map.in();
-      menu.in();
+      menu.setup();
     });
   });
 
@@ -388,27 +388,73 @@ jQuery(function () {
     }
   });
 
+  var currentSectionName;
+  var $content = jQuery('.heads__contents__container');
   SCENE.on('section:didClick', function () {
     menu.out();
     map.out();
 
     var current = this.sec.name;
     if (current === 'beams') {
-
+      SCENE.retract(0, -62, 50);
+      beamsSection.retract();
+    } else if (current === 'drop') {
+      SCENE.retract(0, -136, 68);
+      dropSection.retract();
     } else if (current === 'ball') {
-
+      SCENE.retract(0, -172, 60);
+      ballSection.retract();
     } else if (current === 'flow') {
-      
-    } else if (current === 'ball') {
-      
+      SCENE.retract(-20, -220, 60);
+      flowSection.retract();
     } else if (current === 'height') {
-
+      SCENE.retract(-20, -284, 80);
+      heightSection.retract();
     } else if (current === 'wave') {
-      
+      SCENE.retract(0, -306, 40);
+      waveSection.retract();
     } else if (current === 'rocks') {
-      
+      SCENE.retract(0, -370, 40);
+      rocksSection.retract();
     } else if (current === 'end') {
-      
+      SCENE.retract(0, -418, 40);
+      endSection.retract();
+    }
+
+    
+    $content.css("display", "block");
+    $content.delay(300).animate({ opacity: 1, top: 0}, 1000);
+
+    currentSectionName = current;
+  });
+
+  jQuery('.heads__contents__quit').on('click', function () {
+    menu.in();
+    map.in();
+    
+    $content.animate({ opacity: 0, top: 100}, 1000);
+    setTimeout(() => {
+      $content.css("display", "none");
+    }, 1000);
+
+    SCENE.tract();
+    var current = currentSectionName;
+    if (current === 'beams') {
+      beamsSection.tract();
+    } else if (current === 'drop') {
+      dropSection.tract();
+    } else if (current === 'ball') {
+      ballSection.tract();
+    } else if (current === 'flow') {
+      flowSection.tract();
+    } else if (current === 'height') {
+      heightSection.tract();
+    } else if (current === 'wave') {
+      waveSection.tract();
+    } else if (current === 'rocks') {
+      rocksSection.tract();
+    } else if (current === 'end') {
+      endSection.tract();
     }
   });
 

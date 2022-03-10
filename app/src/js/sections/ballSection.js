@@ -85,4 +85,18 @@ ballSection.onStop(function () {
   grid.el.visible = false;
 });
 
+ballSection.onRetract(function () {
+  
+  TweenLite.to(ball.el.scale, 1.5, {x: 0.6, y: 0.6, z: 0.6});
+  TweenLite.to(textCh.el.position, 1.5, {x: 10, y: -2, z: 15});
+  TweenLite.to(textEn.el.position, 1.5, {x: 20, y: 1, z: 0});
+
+});
+
+ballSection.onTract(function () {
+  TweenLite.to(ball.el.scale, 1.5, {x: 1, y: 1, z: 1});
+  TweenLite.to(textCh.el.position, 1.5, {x: 15, y: 0, z: 15});
+  TweenLite.to(textEn.el.position, 1.5, {x: 24, y: -2.6, z: 0});
+});
+
 module.exports = ballSection;

@@ -1,5 +1,6 @@
 'use strict';
 
+var TweenLite = require('tweenlite');
 var Section = require('../classes/SectionClass');
 var TextPanel = require('../objects3D/TextPanelObject3D');
 var Beam = require('../objects3D/BeamObject3D');
@@ -89,6 +90,16 @@ beamsSection.onStop(function () {
   leftBeam.el.visible = false;
   middleBeam.el.visible = false;
   rightBeam.el.visible = false;
+});
+
+beamsSection.onRetract(function () {
+  TweenLite.to(textCh.el.rotation, 1.5, {y: 0});
+  TweenLite.to(textEn.el.rotation, 1.5, {y: 0});
+});
+
+beamsSection.onTract(function () {
+  TweenLite.to(textCh.el.rotation, 1.5, {y: 0.4});
+  TweenLite.to(textEn.el.rotation, 1.5, {y: 0.4});
 });
 
 module.exports = beamsSection;

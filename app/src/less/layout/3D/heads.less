@@ -23,8 +23,9 @@
   display: none;
   position: absolute;
   z-index: 5;
-  top: 0;
+  top: 100;
   left: 0;
+  opacity: 0;
   background-color: aqua 0.5;
 
   width: 100%;
@@ -32,11 +33,23 @@
 }
 
 .heads__contents {
+  position: relative;
   margin: 10% 3% 0%;
   height: 90%;
   width: 94%;
   background-color: darkgray;
   overflow: scroll;
+}
+
+.heads__contents__quit {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  width: 30px;
+  height: 30px;
+
+  cursor: pointer;
 }
 
 .heads__viewport canvas {
