@@ -16,8 +16,8 @@ var points = [
 ];
 
 var field = new FlowField(points, {
-  subsAmplitude: 50,
-  subsNumber: 10
+  subsAmplitude: 30,
+  subsNumber: 6
 });
 flowSection.add(field.el);
 

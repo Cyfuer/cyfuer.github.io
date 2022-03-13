@@ -198,10 +198,10 @@ var SCENE = (function () {
         (-sections.length * parameters.sectionHeight) - parameters.sectionHeight
       ];
 
-      var backgroundParticles = new BackgroundParticles({ rangeY: rangeY, count: 1000 });
+      var backgroundParticles = new BackgroundParticles({ rangeY: rangeY, count: 400 });
       scene.add(backgroundParticles.el);
 
-      backgroundLines = new BackgroundLines({ rangeY: rangeY, count: 200 });
+      backgroundLines = new BackgroundLines({ rangeY: rangeY, count: 120 });
       scene.add(backgroundLines.el);
     }
 

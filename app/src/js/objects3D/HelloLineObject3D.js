@@ -109,9 +109,9 @@ function TitleLine() {
 
       displacement[v] = new THREE.Vector3();
 
-      color[v] = new THREE.Color(0xffffff);
+      color[v] = new THREE.Color(0x666666);
       // color[ v ].setHSL( 0, 0, Math.cos(v / vertices.length * 1.2) );
-      color[v].setHSL(0, 0, Math.cos(v * 0.45) + 0.2);
+      // color[v].setHSL(0, 0, Math.cos(v * 0.45) + 0.2);
 
     }
 
