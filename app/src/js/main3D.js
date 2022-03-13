@@ -135,6 +135,8 @@ jQuery(function () {
     else if (to === 'beams') {
       helloSection.smokeStart();
 
+      helloSection.stop();
+
       beamsSection.in();
       beamsSection.start();
     }
@@ -222,7 +224,10 @@ jQuery(function () {
     }
 
     // out begin
-    if (from === 'hello') {
+    if (from === to) {
+
+    }
+    else if (from === 'hello') {
       helloSection.out(way);
     }
     else if (from === 'beams') {

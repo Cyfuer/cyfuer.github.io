@@ -121,7 +121,6 @@ function Beam (options) {
 
   function positionUpdate () {
     /*jshint validthis: true */
-    console.log(this.target);
     var extremity = this.target.y - (width /2);
 
     lineGeometry.vertices[1].y = extremity;

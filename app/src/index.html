@@ -32,6 +32,42 @@
     <div class="loader__progress"></div>
   </div>
 
+  <script type="x-shader/x-vertex" id="helloline-vertexshader">
+
+    uniform float amplitude;
+
+    attribute vec3 displacement;
+    attribute vec3 customColor;
+
+    varying vec3 vColor;
+
+    void main() {
+
+      vec3 newPosition = position + amplitude * displacement;
+
+      vColor = customColor;
+
+      gl_Position = projectionMatrix * modelViewMatrix * vec4( newPosition, 1.0 );
+
+    }
+
+  </script>
+
+  <script type="x-shader/x-fragment" id="helloline-fragmentshader">
+
+    uniform vec3 color;
+    uniform float opacity;
+
+    varying vec3 vColor;
+
+    void main() {
+
+      gl_FragColor = vec4( vColor * color, opacity );
+
+    }
+
+  </script>
+
   <script type="text/javascript">
     document = window.document;
 
