@@ -70,8 +70,19 @@ jQuery(function () {
   menu.onClick(function () {
     var $el = jQuery(this);
     var name = $el.attr('data-button') || '';
-
-    if (name === 'sounds') {
+    if (name === 'home') {
+      SCENE.goTo(0);
+    }
+    else if (name === 'blog') {
+      SCENE.goTo(1);
+    }
+    else if (name === 'book') {
+      SCENE.goTo(3);
+    }
+    else if (name === 'message') {
+      SCENE.goTo(7);
+    }
+    else if (name === 'sounds') {
       SOUNDS.toggle();
       $el.html(SOUNDS.isMuted() ? '取消静音' : '静音');
     }
