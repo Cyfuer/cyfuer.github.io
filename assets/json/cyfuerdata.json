@@ -1,0 +1,31 @@
+{
+    "blog": [
+        {
+            "title": "基本技能",
+            "hidden": false,
+            "list": [
+                {
+                    "title": "Mac OS",
+                    "img": "",
+                    "link": "",
+                    "type": ""
+                }
+            ]
+        }
+    ],
+    "block": [
+        {
+            "title": "学习资源",
+            "img": "",
+            "link": ""
+        }
+    ],
+    "book": [
+        {
+            "name": "",
+            "img": "",
+            "score": 5,
+            "reading": ""
+        }
+    ]
+}

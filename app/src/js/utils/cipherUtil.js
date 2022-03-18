@@ -1,0 +1,55 @@
+'use strict';
+
+
+var Cipher = (function () {
+    var instance;
+
+    const cipher = salt => {
+        const textToChars = text => text.split('').map(c => c.charCodeAt(0));
+        const byteHex = n => ("0" + Number(n).toString(16)).substr(-2);
+        const applySaltToChar = code => textToChars(salt).reduce((a, b) => a ^ b, code);
+        return text => text.split('')
+            .map(textToChars)
+            .map(applySaltToChar)
+            .map(byteHex)
+            .join('');
+    }
+
+    const decipher = salt => {
+        const textToChars = text => text.split('').map(c => c.charCodeAt(0));
+        const applySaltToChar = code => textToChars(salt).reduce((a, b) => a ^ b, code);
+        return encoded => encoded.match(/.{1,2}/g)
+            .map(hex => parseInt(hex, 16))
+            .map(applySaltToChar)
+            .map(charCode => String.fromCharCode(charCode))
+            .join('');
+    }
+
+    const myCipher = cipher('mySecretSalt-cyfuerblog');
+    const myDecipher = decipher('mySecretSalt-cyfuerblog');
+
+
+    function init() {
+        return {
+            cipher: function (text) {
+                return myCipher(text);
+            },
+            decipher: function (text) {
+                return myDecipher(text);
+            },
+        }
+    }
+
+    return {
+        getInstance: function () {
+            if (!instance) {
+                instance = init();
+            }
+
+            return instance;
+        }
+    };
+
+})();
+
+module.exports = Cipher.getInstance();
