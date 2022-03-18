@@ -24,6 +24,9 @@
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^4.0.0"
   },
+  "dependencies": {
+    "@notionhq/client": "^1.0.3"
+  },
   "browser": {
     "jquery": "./app/src/vendor/jquery/dist/jquery.js",
     "three": "./app/src/vendor/threejs/build/three.js",
