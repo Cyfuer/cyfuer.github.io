@@ -1,9 +1,9 @@
 'use strict';
 
 var jQuery = require('jquery');
-
-var Cipher = require('../utils/cipherUtil')
+var Cipher = require('../utils/cipherUtil');
 var Events = require('../classes/EventsClass');
+
 
 /**
  * Handle navigation between heads/tails
@@ -230,22 +230,26 @@ var APP = (function() {
         }
 
         function blogContent() {
-
-            // loadData('./app/public/data/fakerdata.txt', function() {
-            //     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            //         var json = xmlhttp.responseText;
-            //         if (typeof json != "undefined" && json != null && json !== '') {
-            //             var data = JSON.parse(unescape(Cipher.decipher(json)));
-            //             console.log("data:" + data);
-            //         }
-            //     } else {
-            //         return '';
-            //     }
-            // })
+            loadData('./app/public/data/fakerdata.txt', function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    var json = xmlhttp.responseText;
+                    if (typeof json != "undefined" && json != null && json !== '') {
+                        var data = JSON.parse(unescape(Cipher.decipher(json)));
+                        console.log(data);
+                        generateTails(data);
+                    }
+                } else {
+                    return '';
+                }
+            })
         }
 
         function generateTails(data) {
-
+            generateTailsBlog(safeArray(data.blogType), data.blogs);
+            generateTailsBook(safeArray(data.books));
+            generateTailsVideo(safeArray(data.videos));
+            generateTailsAlbum();
+            generateTailsReflink();
         }
 
         function generateTailsBlog(blogType, blogs) {
@@ -272,13 +276,17 @@ var APP = (function() {
             // tails__blog__posts
             var $tailsBlogPosts = $tails.find('.tails__blog__posts');
             blogs.forEach(element => {
-                var typeStr = element.type + " · ";
+                var typeStr = "" + element.type;
                 var tagStr = "";
                 for (const tagItem of element.tags) {
                     if (tagStr.length > 0) {
                         tagStr += " | ";
                     }
                     tagStr += tagItem;
+                }
+
+                if (typeStr.length > 0 && tagStr.length > 0) {
+                    typeStr += " · "
                 }
 
                 var el = `
@@ -296,14 +304,17 @@ var APP = (function() {
 
         function generateTailsBook(books) {
             // tails__book
+            const countInRow = 6;
             var $tailsBook = $tails.find('.tails__book');
             var $tailsBookContent = $tailsBook.find('.dy-videos');
             books.forEach(element => {
                 var titleEl = `
-                <h2>${element.title}年</h2>"
+                <h2>${element.title}年</h2>
                 `;
                 var $listEl = $(`<ul class="dy-video-list"></ul>`);
                 $tailsBookContent.append(titleEl);
+
+                var idx = 0;
                 for (const bookItem of safeArray(element.books)) {
                     var tagStr = "";
                     for (const tagItem of bookItem.tags) {
@@ -312,15 +323,17 @@ var APP = (function() {
                         }
                         tagStr += tagItem;
                     }
+                    var metaPosition = (idx % countInRow) > (countInRow / 2) ? "dy-video-meta-left" : "dy-video-meta-right";
+                    idx += 1;
+                    var dateStr = bookItem.recently.substring(5);
                     var bookEl = `
-                    <li data- class="dy-video-item dy-video-meta-right">
+                    <li data- class="dy-video-item ${metaPosition}">
                         <div class="dy-video-meta">
-                            <!-- <div class="dy-video-meta-bg"> </div> -->
                             <div class="dy-video-meta-dy">
                                 <div class="dy-video-title">${bookItem.name}</div>
                                 <div class="dy-video-author">作者：${bookItem.author}</div>
                                 <div class="dy-video-tag">标签：${tagStr}</div>
-                                <div class="dy-video-gnosis">${bookItem.desc}</div>
+                                <div class="dy-video-gnosis">读后感：${bookItem.desc}</div>
                             </div>
                             <div class="dy-video-meta-bg"> </div>
                         </div>
@@ -330,7 +343,7 @@ var APP = (function() {
                         <div class="dy-video-primary">
                             <div class="dy-video-title">${bookItem.name}</div>
                             <!-- <span class="dy-video-rating"> ${bookItem.name} </span> </div> -->
-                            <div class="dy-video-desc">最近阅读：${bookItem.recently}</div>
+                            <div class="dy-video-desc">最近阅读：${dateStr}</div>
                         </div>
                     </li>
                     `;
@@ -343,14 +356,16 @@ var APP = (function() {
 
         function generateTailsVideo(videos) {
             // tails__video
+            const countInRow = 6;
             var $tailsBook = $tails.find('.tails__video');
             var $tailsBookContent = $tailsBook.find('.dy-videos');
-            books.forEach(element => {
+            videos.forEach(element => {
                 var titleEl = `
-    <h2>${element.title}年</h2>"
+    <h2>${element.title}年</h2>
     `;
                 var $listEl = $(`<ul class="dy-video-list"></ul>`);
                 $tailsBookContent.append(titleEl);
+                var idx = 0;
                 for (const bookItem of safeArray(element.books)) {
                     var tagStr = "";
                     for (const tagItem of bookItem.tags) {
@@ -359,15 +374,19 @@ var APP = (function() {
                         }
                         tagStr += tagItem;
                     }
+
+                    var metaPosition = (idx % countInRow) > (countInRow / 2) ? "dy-video-meta-left" : "dy-video-meta-right";
+                    idx += 1;
+                    var dateStr = bookItem.recently.substring(5);
                     var bookEl = `
-        <li data- class="dy-video-item dy-video-meta-right">
+        <li data- class="dy-video-item ${metaPosition}">
             <div class="dy-video-meta">
                 <!-- <div class="dy-video-meta-bg"> </div> -->
                 <div class="dy-video-meta-dy">
                     <div class="dy-video-title">${bookItem.name}</div>
                     <div class="dy-video-author">主演：${bookItem.author}</div>
                     <div class="dy-video-tag">标签：${tagStr}</div>
-                    <div class="dy-video-gnosis">${bookItem.desc}</div>
+                    <div class="dy-video-gnosis">观后感：${bookItem.desc}</div>
                 </div>
                 <div class="dy-video-meta-bg"> </div>
             </div>
@@ -377,7 +396,7 @@ var APP = (function() {
             <div class="dy-video-primary">
                 <div class="dy-video-title">${bookItem.name}</div>
                 <!-- <span class="dy-video-rating"> ${bookItem.name} </span> </div> -->
-                <div class="dy-video-desc">最近观看：${bookItem.recently}</div>
+                <div class="dy-video-desc">最近观看：${dateStr}</div>
             </div>
         </li>
         `;
@@ -387,12 +406,111 @@ var APP = (function() {
             });
         }
 
-        function generateTailsAlbum(albums) {
+        function generateTailsAlbum() {
+
+            var albums = [{
+                    "date": "2022-03-25",
+                    "width": 322,
+                    "height": 400,
+                    "cover": "../app/public/img/texture-ball.png"
+                },
+                {
+                    "date": "",
+                    "width": 100,
+                    "height": 300,
+                    "cover": "../app/public/img/texture-ball.png"
+                },
+                {
+                    "date": "2022-03-25",
+                    "width": 322,
+                    "height": 400,
+                    "cover": "../app/public/img/texture-ball.png"
+                },
+                {
+                    "date": "",
+                    "width": 100,
+                    "height": 300,
+                    "cover": "../app/public/img/texture-ball.png"
+                },
+                {
+                    "date": "2022-03-25",
+                    "width": 322,
+                    "height": 400,
+                    "cover": "../app/public/img/texture-ball.png"
+                },
+                {
+                    "date": "",
+                    "width": 100,
+                    "height": 300,
+                    "cover": "../app/public/img/texture-ball.png"
+                },
+            ];
+
+            var $tailsAlbum = $tails.find('.tails__album');
+            var width = 280;
+
+            albums.forEach(element => {
+                var h = parseInt(width * element.height / element.width);
+                var el = `
+                <img src="${element.cover}" class="tails__album__item" height="${h}px">
+                `;
+
+                $tailsAlbum.append(el);
+            });
 
         }
 
+        function generateTailsReflink() {
+            var reflinks = [{
+                "title": "",
+                "list": [{
+                        "name": "",
+                        "url": "",
+                        "img": "/app/public/img/part-drop.png",
+                        "desc": ""
+                    },
+                    {
+                        "name": "",
+                        "url": "",
+                        "img": "",
+                        "desc": ""
+                    }
+                ]
+            }];
+
+            // tails__video
+            var $tailsReflink = $tails.find('.tails__reflink');
+            reflinks.forEach(element => {
+                var titleEl = `
+    <h2>${element.title}</h2>
+    `;
+                var $listEl = $(`<div class="tails__reflink__list"></div>`);
+                $tailsReflink.append(titleEl);
+                for (const reflinkItem of safeArray(element.list)) {
+                    var reflinkEl = `
+                    <div class="tails__reflink__list__item">
+                    <a href="${reflinkItem.url}" target="_blank">
+                        <div class="item__content">
+                            <div class="item__content__left">
+                                <img src="${reflinkItem.img}" alt="" class="item__content__left__img">
+                            </div>
+                            <div class="item__content__right">
+                                <div class="item__content__right__title">${reflinkItem.name}</div>
+                                <div class="item__content__right__desc">${reflinkItem.desc}</div>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+        `;
+                    $listEl.append(reflinkEl);
+                }
+                $tailsReflink.append($listEl);
+            });
+        }
+
         function safeArray(array) {
-            if (array != "undefined" && array != null && array.length > 0) {
+            if (typeof array != "undefined" && array != null && array.length > 0) {
                 return array;
             } else {
                 return [];

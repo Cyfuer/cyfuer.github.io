@@ -125,7 +125,7 @@ var DATA = (function() {
                 product: false, // 项目
                 myproducts: false, // 我的项目
                 hobby: false, // 爱好
-                albums: true, // 相册
+                albums: false, // 相册
             };
 
             console.log('1------');

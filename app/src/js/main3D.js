@@ -14,7 +14,8 @@ var APP = require('./modules/appModule');
 var SCENE = require('./modules/sceneModule');
 var SOUNDS = require('./modules/soundsModule');
 var HASH = require('./modules/hashModule');
-// var DATA = require('./modules/dataModule');
+// data1:解开注释
+var DATA = require('./modules/dataModule');
 
 var ImagesLoader = require('./classes/LoaderClass');
 
@@ -461,8 +462,8 @@ jQuery(function() {
     $tailsSections.find('.tails__section__el').animate({ opacity: 0, y: 100 }, 0);
 
     var waypoint = $tailsSections.waypoint({
-        $viewport: jQuery('.tails'),
-        offset: 30
+        $viewport: jQuery('.tails__contents__asset'),
+        offset: 0
     });
 
     $tailsSections.on('active', function() {
