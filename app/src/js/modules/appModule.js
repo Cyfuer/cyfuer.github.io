@@ -26,6 +26,9 @@ var APP = (function() {
         var $infoArrow = $heads.find('.trigger__info--arrow');
         var $infoHeads = $heads.find('.trigger__info--heads');
         var $infoTails = $heads.find('.trigger__info--tails');
+        var $infoTailsNav = $tails.find('#tails_contents__nav');
+        $infoTailsNav.css('opacity', 0);
+
 
         // reset scroll
         jQuery('body').stop().animate({ scrollTop: 0 }, 2000);
@@ -116,11 +119,14 @@ var APP = (function() {
                     events.trigger('heads:visible');
                     $infoHeads.animate({ opacity: 0 }, 800);
                     $infoArrow.stop().animate({ opacity: 0.5, bottom: 0 }, 500);
+                    $infoTailsNav.animate({ opacity: 0 }, 800);
                 } else {
                     to = 'tails';
                     y = -100;
                     durations = [1000, 1050];
                     $infoTails.animate({ opacity: 0 }, 800);
+                    $infoTailsNav.animate({ opacity: 1 }, 800);
+                    $infoArrow.stop().animate({ opacity: 0, bottom: 20 }, 500);
                 }
 
                 events.trigger('slideBegin', { to: to });
@@ -136,8 +142,10 @@ var APP = (function() {
                         events.trigger('heads:invisible');
 
                         $infoHeads.css('opacity', 1);
+                        $infoTailsNav.css('opacity', 1);
                     } else {
                         $infoTails.css('opacity', 1);
+                        $infoTailsNav.css('opacity', 0);
                     }
 
                     if (callback) {
@@ -176,6 +184,8 @@ var APP = (function() {
             var current = $(".nav .active");
 
             $("#tails_contents__nav a").on("click", function() {
+
+                console.log('2======');
                 current.removeClass("active");
                 var lastDiv = current.parent().attr("value");
                 $('.tails__contents__asset .' + lastDiv).hide();
@@ -216,10 +226,10 @@ var APP = (function() {
                     .removeClass("squeeze");
             });
 
+            // setup
             var currentWidth = $("#tails_contents__nav .nav .active").parent().width();
             var currentPosition = $("#tails_contents__nav .nav .active").parent().position();
             $("#tails_contents__nav .slide1").css({ left: +currentPosition.left, width: currentWidth });
-
 
             $tails.find('.tails__blog').show();
             $tails.find('.tails__book').hide();
@@ -227,6 +237,12 @@ var APP = (function() {
             $tails.find('.tails__album').hide();
             $tails.find('.tails__about').hide();
             $tails.find('.tails__reflink').hide();
+        }
+
+        function switchTab(tabValue) {
+            console.log('1======' + tabValue);
+            console.log($(tabValue + ' a'));
+            $(tabValue + ' a').trigger('click');
         }
 
         function blogContent() {
@@ -563,6 +579,11 @@ var APP = (function() {
              **/
             slide: function(callback) {
                 events.trigger('endSlide', callback);
+            },
+
+            switch: function(tabValue) {
+                console.log('======' + tabValue);
+                switchTab(tabValue);
             }
         };
     }

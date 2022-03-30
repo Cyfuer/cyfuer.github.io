@@ -15,7 +15,7 @@ var SCENE = require('./modules/sceneModule');
 var SOUNDS = require('./modules/soundsModule');
 var HASH = require('./modules/hashModule');
 // data1:解开注释
-var DATA = require('./modules/dataModule');
+// var DATA = require('./modules/dataModule');
 
 var ImagesLoader = require('./classes/LoaderClass');
 
@@ -75,11 +75,19 @@ jQuery(function() {
         if (name === 'home') {
             SCENE.goTo(0);
         } else if (name === 'blog') {
-            SCENE.goTo(1);
+            SCENE.lock();
+            APP.slide(SCENE.unlock);
+            APP.switch('.tails__blog__nav');
         } else if (name === 'book') {
-            SCENE.goTo(3);
+            SCENE.lock();
+            APP.slide(SCENE.unlock);
+            APP.switch('.tails__book__nav');
         } else if (name === 'message') {
             SCENE.goTo(7);
+        } else if (name === 'me') {
+            SCENE.lock();
+            APP.slide(SCENE.unlock);
+            APP.switch('.tails__about__nav');
         } else if (name === 'sounds') {
             SOUNDS.toggle();
             $el.html(SOUNDS.isMuted() ? '取消静音' : '静音');
