@@ -29,7 +29,7 @@ var beamsSection = require('./sections/beamsSection');
 var dropSection = require('./sections/dropSection');
 var ballSection = require('./sections/ballSection');
 var flowSection = require('./sections/flowSection');
-var neonsSection = require('./sections/neonsSection');
+// var neonsSection = require('./sections/neonsSection');
 var heightSection = require('./sections/heightSection');
 var waveSection = require('./sections/waveSection');
 var faceSection = require('./sections/faceSection');
@@ -180,8 +180,8 @@ jQuery(function() {
             flowSection.fieldIn();
             flowSection.start();
 
-            neonsSection.start();
-            neonsSection.smokeStart();
+            // neonsSection.start();
+            // neonsSection.smokeStart();
 
             heightSection.show();
         } else if (to === 'height') {
@@ -240,7 +240,7 @@ jQuery(function() {
         } else if (from === 'flow') {
             flowSection.out(way);
         } else if (from === 'neons') {
-            neonsSection.out(way);
+            // neonsSection.out(way);
         } else if (from === 'height') {
             heightSection.out(way);
         } else if (from === 'wave') {
@@ -308,10 +308,10 @@ jQuery(function() {
                 flowSection.stop();
             }
         } else if (from === 'neons') {
-            neonsSection.stop();
+            // neonsSection.stop();
 
             if (to !== 'flow' && to !== 'height') {
-                neonsSection.smokeStop();
+                // neonsSection.smokeStop();
             }
 
             if (to !== 'ball' && to !== 'flow' && to !== 'height') {
