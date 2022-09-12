@@ -16,7 +16,7 @@ require('../fonts/helvetiker_bold.typeface')
 function TitleLine() {
     var object, uniforms, attributes, inTween, geometry;
 
-    var text = "hello world",
+    var text = "Hi, I’m Cyfuer",
 
         height = 1,
         size = 20,
@@ -134,8 +134,8 @@ function TitleLine() {
 
         for (var i = 0, il = attributes.displacement.value.length; i < il; i++) {
             let a = Math.random();
-            nx = 0.2 * (0.5 - a);
-            ny = 0.2 * (0.5 - a);
+            nx = 0.1 * (0.5 - a);
+            ny = 0.1 * (0.5 - a);
             nz = 0.3 * (0.5 - a);
 
             value = attributes.displacement.value[i];

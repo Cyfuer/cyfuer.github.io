@@ -11,61 +11,61 @@ var helloSection = new Section('hello');
 var title = new TitleLine();
 helloSection.add(title.el);
 
-var smoke = new Smoke({  
-  frontColor: '#2c2c2c',
-  backColor: '#a6a6a6',
-  layers: 3,
-  data: [
-    { positionX : 10.7, positionY: 3.9, positionZ: 17.8, rotationZ: 2.7, scale: 3.9 },
-    { positionX : -2.8, positionY: 2.6, positionZ: -11, rotationZ: 0.7, scale: 7.7 },
-    { positionX : 13, positionY: 19.5, positionZ: -1.3, rotationZ: 2, scale: 2.7 }
-  ]
+var smoke = new Smoke({
+    frontColor: '#2c2c2c',
+    backColor: '#a6a6a6',
+    layers: 3,
+    data: [
+        { positionX: 10.7, positionY: -1.9, positionZ: 17.8, rotationZ: 2.7, scale: 3.9 },
+        { positionX: -2.8, positionY: 2.6, positionZ: -11, rotationZ: 0.7, scale: 7.7 },
+        { positionX: 13, positionY: 19.5, positionZ: -1.3, rotationZ: 2, scale: 2.7 }
+    ]
 });
 
 helloSection.add(smoke.el);
 
 smoke.el.visible = false;
 
-helloSection.onIn(function () {
-  title.in();
+helloSection.onIn(function() {
+    title.in();
 });
 
-helloSection.onOut(function () {
-  title.out();
+helloSection.onOut(function() {
+    title.out();
 });
 
-helloSection.onStart(function () {
-  title.start();
+helloSection.onStart(function() {
+    title.start();
 });
 
-helloSection.onStop(function () {
-  title.stop();
+helloSection.onStop(function() {
+    title.stop();
 });
 
 var smokePlaying = false;
 
-helloSection.smokeStart = function () {
-  if (smokePlaying) {
-    return false;
-  }
+helloSection.smokeStart = function() {
+    if (smokePlaying) {
+        return false;
+    }
 
-  smokePlaying = true;
+    smokePlaying = true;
 
-  smoke.start();
+    smoke.start();
 
-  smoke.el.visible = true;
+    smoke.el.visible = true;
 };
 
-helloSection.smokeStop = function () {
-  if (!smokePlaying) {
-    return false;
-  }
+helloSection.smokeStop = function() {
+    if (!smokePlaying) {
+        return false;
+    }
 
-  smokePlaying = false;
+    smokePlaying = false;
 
-  smoke.stop();
+    smoke.stop();
 
-  smoke.el.visible = false;
+    smoke.el.visible = false;
 };
 
 module.exports = helloSection;
