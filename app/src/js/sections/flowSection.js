@@ -21,19 +21,18 @@ var field = new FlowField(points, {
 });
 flowSection.add(field.el);
 
-// var textCh = new TextPanel(
-//   '过 往 项 目',
-//   {
-//     font: 'Arial',
-//     align: 'right',
-//     style: '',
-//     size: 50,
-//     lineSpacing: 40
-//   }
-// );
-// textCh.el.position.set(0, 0, -10);
-// textCh.el.rotation.set(0, 0.4, 0);
-// flowSection.add(textCh.el);
+var textCh = new TextPanel(
+    '自 强 不 息', {
+        font: 'Arial',
+        align: 'right',
+        style: '',
+        size: 60,
+        lineSpacing: 40
+    }
+);
+textCh.el.position.set(0, 0, -10);
+textCh.el.rotation.set(0, 0.6, 0);
+flowSection.add(textCh.el);
 
 // var textEn = new TextPanel(
 //   'PAST PROJUCTS',
@@ -64,12 +63,12 @@ flowSection.fieldIn = function() {
 };
 
 flowSection.onIn(function() {
-    // textCh.in();
+    textCh.in();
     // textEn.in();
 });
 
 flowSection.onOut(function(way) {
-    // textCh.out(way);
+    textCh.out(way);
     // textEn.out(way);
 });
 
@@ -86,13 +85,13 @@ flowSection.onStop(function() {
 });
 
 flowSection.onRetract(function() {
-    // TweenLite.to(textCh.el.position, 1.5, {x: -19, y: 10, z: -7});
+    TweenLite.to(textCh.el.position, 1.5, { x: -19, y: 10, z: -7 });
     // TweenLite.to(textEn.el.position, 1.5, {x: -17, y: 6, z: -8});
 
 });
 
 flowSection.onTract(function() {
-    // TweenLite.to(textCh.el.position, 1.5, {x: 0, y: 0, z: -10});
+    TweenLite.to(textCh.el.position, 1.5, { x: 0, y: 0, z: -10 });
     // TweenLite.to(textEn.el.position, 1.5, {x: 1.8, y: -2.4, z: -10});
 });
 

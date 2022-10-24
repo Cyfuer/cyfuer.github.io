@@ -140,9 +140,9 @@ function TitleLine() {
 
             value = attributes.displacement.value[i];
 
-            value.x += nx;
-            value.y += ny;
-            value.z += nz;
+            value.x += nx * scal;
+            value.y += ny * scal;
+            value.z += nz * scal;
 
         }
 
