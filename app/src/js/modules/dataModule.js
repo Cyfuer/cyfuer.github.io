@@ -3,6 +3,7 @@
 // var jQuery = require('jquery');
 var Cipher = require('../utils/cipherUtil')
 var { Client } = require("@notionhq/client");
+require('dotenv').config({ path: '../../../../.env' })
 
 /**
  * Handle navigation between heads/tails
@@ -19,7 +20,6 @@ var DATA = (function() {
     var data = {};
 
 
-
     function init() {
         notion = new Client({ auth: 'secret_fDrblc7hdwVKSWGkKssppCISd2eSPgInEnz5WLWVOmD' });
         loadData();
@@ -27,7 +27,11 @@ var DATA = (function() {
 
     function notion_readRichText(richText) {
         if (typeof(richText) != "undefined" && richText.length) {
-            return richText[0].text.content;
+            var title = "";
+            for (let i in richText) {
+                title += richText[i].text.content;
+            }
+            return title;
         } else {
             return '';
         }
@@ -196,7 +200,6 @@ var DATA = (function() {
                     page_size: 50
                 });
 
-                console.log(blogResponse.results[0]);
                 var blogs = [];
                 blogResponse.results.forEach(element => {
                     var blog = {};
@@ -205,7 +208,8 @@ var DATA = (function() {
                     blog.desc = notion_readRichText(element.properties.Desc.rich_text);
                     blog.type = notion_readSelect(element.properties.Type.select);
                     blog.tags = notion_readMultiSelect(element.properties.Tags.multi_select);
-                    blog.link = "https://roomy-octopus-669.notion.site/" + element.id.replace(/-/g, "");
+                    // blog.link = "https://roomy-octopus-669.notion.site/" + element.id.replace(/-/g, "");
+                    blog.link = element.url.replace("https://www.notion.so", process.env.BLOG_HOST);
                     blogs.push(blog);
                 });
 
