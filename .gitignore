@@ -5,3 +5,4 @@ app/src/vendor
 /index.html
 /email.html
 /emailFR.html
+.env

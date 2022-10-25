@@ -1,6 +1,6 @@
 'use strict';
 
-var jQuery = require('jquery');
+// var jQuery = require('jquery');
 var Cipher = require('../utils/cipherUtil')
 var { Client } = require("@notionhq/client");
 
@@ -10,7 +10,7 @@ var { Client } = require("@notionhq/client");
  * @module DATA
  * @event [heads:visible] Heads is at least partially in the viewport
  * @event [heads:invisible] Heads is completely out of the viewport
- * @requires jQuery, Events
+//  * @requires jQuery, Events
  */
 
 var DATA = (function() {
@@ -119,13 +119,14 @@ var DATA = (function() {
             var config = {
                 blogType: true, // 博客类别
                 blogs: true, // 最近博客列表
+                books: false, // 书单
+                videos: false, // 影视
+                albums: false, // 相册
+
                 blockchain: false, // 区块链类别
-                books: true, // 书单
-                videos: true, // 影视
                 product: false, // 项目
                 myproducts: false, // 我的项目
                 hobby: false, // 爱好
-                albums: false, // 相册
             };
 
             console.log('1------');
@@ -133,6 +134,7 @@ var DATA = (function() {
 
             // blog Type
             if (config.blogType) {
+                console.log('1------1');
                 const blogTypeDatabaseId = '191253ba5d8e45e9b4c75b74086387bf';
                 const blogDatabaseId = '06946b0476c14d159ec1642faf34c2b2';
 
@@ -150,6 +152,7 @@ var DATA = (function() {
                         direction: 'ascending',
                     }]
                 });
+
 
                 var blogTypes = [];
                 blogTypeResponse.results.forEach(element => {
@@ -182,7 +185,6 @@ var DATA = (function() {
 
             // blogs
             if (config.blogs) {
-
                 const blogDatabaseId = '1ea54bc16376469eb9ca4923bceeb12b';
 
                 const blogResponse = await notion.databases.query({
@@ -194,11 +196,12 @@ var DATA = (function() {
                     page_size: 50
                 });
 
+                console.log(blogResponse.results[0]);
                 var blogs = [];
                 blogResponse.results.forEach(element => {
                     var blog = {};
                     blog.title = notion_readRichText(element.properties.Title.title);
-                    blog.date = notion_readUTC(element.last_edited_time);
+                    blog.date = element.properties["Publish time"].date.start;
                     blog.desc = notion_readRichText(element.properties.Desc.rich_text);
                     blog.type = notion_readSelect(element.properties.Type.select);
                     blog.tags = notion_readMultiSelect(element.properties.Tags.multi_select);
@@ -498,7 +501,7 @@ var DATA = (function() {
                         album.height = element.properties.Height.number;
                         console.log('10------4-4');
                         // album.title = notion_readRichText(element.properties.Name.title);
-                        album.cover = notion_readCover(element.cover);
+                        album.cover = element.properties.URL.url;
                         console.log('10------4-5');
                         albums.push(album);
                     });
@@ -520,10 +523,10 @@ var DATA = (function() {
             }
             console.log('10------');
 
-            console.log(JSON.stringify(data));
+            // console.log(JSON.stringify(data));
 
             // escape 解决中文乱码问题
-            console.log('json:\n' + Cipher.cipher(escape(JSON.stringify(data))));
+            // console.log('json:\n' + Cipher.cipher(escape(JSON.stringify(data))));
 
         } catch (error) {
             console.error(error.body);

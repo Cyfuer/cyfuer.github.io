@@ -25,7 +25,8 @@
         "watchify": "^4.0.0"
     },
     "dependencies": {
-        "@notionhq/client": "^1.0.3"
+        "@notionhq/client": "^1.0.3",
+        "dotenv": "^16.0.3"
     },
     "browser": {
         "jquery": "./app/src/vendor/jquery/dist/jquery.js",
