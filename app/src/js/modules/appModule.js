@@ -264,7 +264,7 @@ var APP = (function() {
             generateTailsBlog(safeArray(data.blogType), data.blogs);
             generateTailsBook(safeArray(data.books));
             generateTailsVideo(safeArray(data.videos));
-            generateTailsAlbum();
+            generateTailsAlbum(safeArray(data.albums));
             generateTailsReflink();
         }
 
@@ -307,11 +307,13 @@ var APP = (function() {
 
                 var el = `
                 <div class="tails__blog__posts__item">
+                <a href="${element.link}" target="_blank">
                     <div class="post__meta">${element.date}<span class="post__meta__tag">${typeStr}${tagStr}</span></div>
-                    <a href="#">
+                    
                         <h3 class="post__title">${element.title}</h3>
-                    </a>
+                    
                     <div class="post__summary">${element.desc}</div>
+                    </a>
                 </div>
               `;
                 $tailsBlogPosts.append(el);
@@ -422,45 +424,7 @@ var APP = (function() {
             });
         }
 
-        function generateTailsAlbum() {
-
-            var albums = [{
-                    "date": "2022-03-25",
-                    "width": 322,
-                    "height": 400,
-                    "cover": "../app/public/img/texture-ball.png"
-                },
-                {
-                    "date": "",
-                    "width": 100,
-                    "height": 300,
-                    "cover": "../app/public/img/texture-ball.png"
-                },
-                {
-                    "date": "2022-03-25",
-                    "width": 322,
-                    "height": 400,
-                    "cover": "../app/public/img/texture-ball.png"
-                },
-                {
-                    "date": "",
-                    "width": 100,
-                    "height": 300,
-                    "cover": "../app/public/img/texture-ball.png"
-                },
-                {
-                    "date": "2022-03-25",
-                    "width": 322,
-                    "height": 400,
-                    "cover": "../app/public/img/texture-ball.png"
-                },
-                {
-                    "date": "",
-                    "width": 100,
-                    "height": 300,
-                    "cover": "../app/public/img/texture-ball.png"
-                },
-            ];
+        function generateTailsAlbum(albums) {
 
             var $tailsAlbum = $tails.find('.tails__album');
             var width = 280;

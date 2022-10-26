@@ -123,9 +123,9 @@ var DATA = (function() {
             var config = {
                 blogType: true, // 博客类别
                 blogs: true, // 最近博客列表
-                books: false, // 书单
-                videos: false, // 影视
-                albums: false, // 相册
+                books: true, // 书单
+                videos: true, // 影视
+                albums: true, // 相册
 
                 blockchain: false, // 区块链类别
                 product: false, // 项目
@@ -527,10 +527,10 @@ var DATA = (function() {
             }
             console.log('10------');
 
-            // console.log(JSON.stringify(data));
+            console.log(JSON.stringify(data));
 
             // escape 解决中文乱码问题
-            // console.log('json:\n' + Cipher.cipher(escape(JSON.stringify(data))));
+            console.log('json:\n' + Cipher.cipher(escape(JSON.stringify(data))));
 
         } catch (error) {
             console.error(error.body);
