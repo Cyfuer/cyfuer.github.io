@@ -444,18 +444,11 @@ var APP = (function() {
             var reflinks = [{
                 "title": "",
                 "list": [{
-                        "name": "",
-                        "url": "",
-                        "img": "/app/public/img/part-drop.png",
-                        "desc": ""
-                    },
-                    {
-                        "name": "",
-                        "url": "",
-                        "img": "",
-                        "desc": ""
-                    }
-                ]
+                    "name": "Alchemy",
+                    "url": "https://auth.alchemy.com",
+                    "img": "https://assets-global.website-files.com/5f973c970bea5548ad4287ef/630901d7a9a833c9902b187a_Frame%2013681.svg",
+                    "desc": "Web3世界的AWS"
+                }]
             }];
 
             // tails__video
