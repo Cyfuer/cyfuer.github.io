@@ -14,8 +14,6 @@ var APP = require('./modules/appModule');
 var SCENE = require('./modules/sceneModule');
 var SOUNDS = require('./modules/soundsModule');
 var HASH = require('./modules/hashModule');
-// data1:解开注释
-// var DATA = require('./modules/dataModule');
 
 var ImagesLoader = require('./classes/LoaderClass');
 
@@ -36,7 +34,6 @@ var faceSection = require('./sections/faceSection');
 var rocksSection = require('./sections/rocksSection');
 var galaxySection = require('./sections/galaxySection');
 var gravitySection = require('./sections/gravitySection');
-var citySection = require('./sections/citySection');
 var endSection = require('./sections/endSection');
 
 jQuery(function() {
@@ -129,7 +126,6 @@ jQuery(function() {
         rocksSection,
         // galaxySection,
         // gravitySection,
-        // citySection,
         endSection
     ]);
 
