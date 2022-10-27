@@ -3,7 +3,7 @@
 var THREE = require('three');
 var TweenLite = require('tweenlite');
 
-var SOUNDS = require('../modules/soundsModule');
+
 var random = require('../utils/randomUtil');
 var yoyo = require('../utils/yoyoUtil');
 var glitchMaterial = require('../materials/glitchMaterial');
@@ -13,7 +13,7 @@ var glitchMaterial = require('../materials/glitchMaterial');
  *
  * @class Ball
  * @constructor
- * @requires THREE, TweenLite, SOUNDS, random, yoyo, glitchMaterial
+ * @requires THREE, TweenLite, random, yoyo, glitchMaterial
  */
 function Ball() {
     var texture = THREE.ImageUtils.loadTexture('./app/public/img/texture-ball.png');
@@ -54,11 +54,9 @@ function Ball() {
     function glitch() {
         mesh.material = glitchMaterial;
 
-        // SOUNDS.whitenoise.play();
 
         TweenLite.delayedCall(random(0.2, 1), function() {
             mesh.material = materialStripe;
-            // SOUNDS.whitenoise.stop();
         });
     }
 

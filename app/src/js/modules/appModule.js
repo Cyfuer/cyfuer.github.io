@@ -506,6 +506,9 @@ var APP = (function() {
         function setup() {
             navigation();
             blogTab();
+            // setTimeout(() => {
+            //     blogContent();
+            // }, 100000);
             blogContent();
             return APP.getInstance();
         }

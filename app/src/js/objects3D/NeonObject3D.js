@@ -4,7 +4,6 @@ var jQuery = require('jquery');
 var THREE = require('three');
 var TweenLite = require('tweenlite');
 
-var SOUNDS = require('../modules/soundsModule');
 var random = require('../utils/randomUtil');
 var yoyo = require('../utils/yoyoUtil');
 
@@ -18,7 +17,7 @@ var yoyo = require('../utils/yoyoUtil');
  * @params {Number} [options.width=20] Neon width
  * @params {Boolean} [options.projection=true] Projection halo?
  * @params {Boolean} [options.planes=3] Glow planes
- * @requires jQuery, THREE, TweenLite, SOUNDS, random, yoyo
+ * @requires jQuery, THREE, TweenLite, random, yoyo
  */
 function Neon(options) {
     this.parameters = jQuery.extend(Neon.defaultOptions, options);
@@ -133,8 +132,6 @@ Neon.prototype.flickOn = function() {
         this.projection.material.opacity = 0.05;
     }
 
-    // SOUNDS.neon.play();
-
     var _this = this;
 
     TweenLite.delayedCall(random(0.05, 0.07), function() {
@@ -166,8 +163,6 @@ Neon.prototype.flickOff = function() {
 
     TweenLite.delayedCall(random(0.05, 0.1), function() {
         _this.flickering = !_this.flickering;
-
-        // SOUNDS.neon.play();
     });
 };
 

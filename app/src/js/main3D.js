@@ -12,7 +12,7 @@ require('./libs/waypointLib');
 
 var APP = require('./modules/appModule');
 var SCENE = require('./modules/sceneModule');
-var SOUNDS = require('./modules/soundsModule');
+// var SOUNDS = require('./modules/soundsModule');
 var HASH = require('./modules/hashModule');
 
 var ImagesLoader = require('./classes/LoaderClass');
@@ -30,7 +30,6 @@ var flowSection = require('./sections/flowSection');
 // var neonsSection = require('./sections/neonsSection');
 var heightSection = require('./sections/heightSection');
 var waveSection = require('./sections/waveSection');
-var faceSection = require('./sections/faceSection');
 var rocksSection = require('./sections/rocksSection');
 var galaxySection = require('./sections/galaxySection');
 var gravitySection = require('./sections/gravitySection');
@@ -40,19 +39,20 @@ jQuery(function() {
     HASH.replacePlaceholders();
 
     var loader = new Loader();
+    loader.in();
     var help = new Help();
     var menu = new Menu();
     var imagesLoader = new ImagesLoader([
         './app/public/img/texture-ball.png',
         './app/public/img/texture-ballAlpha.png',
-        './app/public/img/sprite-smoke.png',
-        './app/public/img/sprite-AKQA.png'
+        './app/public/img/sprite-smoke.png'
     ]);
 
     // preload
     imagesLoader.start();
 
     imagesLoader.onProgress(function(percent) {
+        console.log("percent--" + percent);
         loader.update(percent);
     });
 
@@ -86,8 +86,8 @@ jQuery(function() {
             APP.slide(SCENE.unlock);
             APP.switch('.tails__about__nav');
         } else if (name === 'sounds') {
-            SOUNDS.toggle();
-            $el.html(SOUNDS.isMuted() ? '取消静音' : '静音');
+            // SOUNDS.toggle();
+            // $el.html(SOUNDS.isMuted() ? '取消静音' : '静音');
         } else if (name === 'help') {
             help.in();
         } else if (name === 'quality') {
@@ -122,7 +122,6 @@ jQuery(function() {
         // neonsSection,
         heightSection,
         waveSection,
-        // faceSection,
         rocksSection,
         // galaxySection,
         // gravitySection,
@@ -197,8 +196,7 @@ jQuery(function() {
 
             rocksSection.show();
         } else if (to === 'face') {
-            faceSection.in();
-            faceSection.start();
+
 
             rocksSection.show();
         } else if (to === 'rocks') {
@@ -242,7 +240,7 @@ jQuery(function() {
         } else if (from === 'wave') {
             waveSection.out(way);
         } else if (from === 'face') {
-            faceSection.out(way);
+
         } else if (from === 'rocks') {
             rocksSection.out(way);
         } else if (from === 'galaxy') {
@@ -338,7 +336,7 @@ jQuery(function() {
                 heightSection.hide();
             }
         } else if (from === 'face') {
-            faceSection.stop();
+
 
             if (to !== 'rocks' && to !== 'galaxy') {
                 rocksSection.hide();
@@ -498,13 +496,13 @@ jQuery(function() {
             waypoint.stop();
 
             try {
-                SOUNDS.background.fadeIn(1, 2000);
+                // SOUNDS.background.fadeIn(1, 2000);
             } catch (e) {
                 console.warn(e);
             }
 
         } else {
-            SOUNDS.background.fadeOut(0, 2000);
+            // SOUNDS.background.fadeOut(0, 2000);
         }
     });
 
@@ -526,5 +524,5 @@ jQuery(function() {
     APP.start();
     SCENE.start();
 
-    SOUNDS.background.fadeIn(1, 2000);
+    // SOUNDS.background.fadeIn(1, 2000);
 });

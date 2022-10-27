@@ -194,25 +194,27 @@ var DATA = (function() {
                 const blogResponse = await notion.databases.query({
                     database_id: blogDatabaseId,
                     sorts: [{
-                        property: 'Last edited time',
+                        property: 'Date',
                         direction: 'descending',
                     }],
                     page_size: 50
                 });
 
+
                 var blogs = [];
                 blogResponse.results.forEach(element => {
                     var blog = {};
                     blog.title = notion_readRichText(element.properties.Title.title);
-                    blog.date = element.properties["Publish time"].date.start;
-                    blog.desc = notion_readRichText(element.properties.Desc.rich_text);
+                    blog.date = notion_readDate(element.properties.Date.date);
+                    blog.desc = notion_readRichText(element.properties.Description.rich_text);
                     blog.type = notion_readSelect(element.properties.Type.select);
-                    blog.tags = notion_readMultiSelect(element.properties.Tags.multi_select);
+                    blog.tags = notion_readMultiSelect(element.properties.Tag.multi_select);
                     // blog.link = "https://roomy-octopus-669.notion.site/" + element.id.replace(/-/g, "");
                     blog.link = element.url.replace("https://www.notion.so", process.env.BLOG_HOST);
                     blogs.push(blog);
                 });
 
+                console.log(blogs[0]);
                 data.blogs = blogs;
             }
             console.log('3------');

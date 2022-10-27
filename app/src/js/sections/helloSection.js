@@ -2,7 +2,6 @@
 
 var Section = require('../classes/SectionClass');
 
-var Title = require('../objects3D/HelloTitleObject3D');
 var TitleLine = require('../objects3D/HelloLineObject3D');
 var Smoke = require('../objects3D/SmokeObject3D');
 

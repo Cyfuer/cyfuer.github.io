@@ -6,7 +6,7 @@ var TweenLite = require('tweenlite');
 
 var SPRITE3D = require('../libs/sprite3DLib');
 
-var SOUNDS = require('../modules/soundsModule');
+// var SOUNDS = require('../modules/soundsModule');
 
 var Events = require('../classes/EventsClass');
 
