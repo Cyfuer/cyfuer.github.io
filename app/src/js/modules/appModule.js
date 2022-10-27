@@ -270,24 +270,24 @@ var APP = (function() {
 
         function generateTailsBlog(blogType, blogs) {
             // tails__blog__tags
-            var $tailsBlogTags = $tails.find('.tails__blog__tags');
-            blogType.forEach(element => {
-                if (!element.hidden) {
-                    if (element.list != null && element.list.length > 0) {
-                        for (const item of element.list) {
-                            if (!item.hidden) {
-                                var el = `
-                                <div class="box shadow">
-                                    <a href="${item.link}" target="_blank">${item.title}</a>
-                                    <div class="circle"></div>
-                                </div>
-                              `;
-                                $tailsBlogTags.append(el);
-                            }
-                        }
-                    }
-                }
-            });
+            // var $tailsBlogTags = $tails.find('.tails__blog__tags');
+            // blogType.forEach(element => {
+            //     if (!element.hidden) {
+            //         if (element.list != null && element.list.length > 0) {
+            //             for (const item of element.list) {
+            //                 if (!item.hidden) {
+            //                     var el = `
+            //                     <div class="box shadow">
+            //                         <a href="${item.link}" target="_blank">${item.title}</a>
+            //                         <div class="circle"></div>
+            //                     </div>
+            //                   `;
+            //                     $tailsBlogTags.append(el);
+            //                 }
+            //             }
+            //         }
+            //     }
+            // });
 
             // tails__blog__posts
             var $tailsBlogPosts = $tails.find('.tails__blog__posts');
