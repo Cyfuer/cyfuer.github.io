@@ -40,20 +40,18 @@ var SOUNDS = (function() {
              */
             isMuted: function() {
                 return Howler._muted;
-            }
+            },
+            background: new Howl({
+                urls: [
+                    './app/public/sounds/background.mp3'
+                ],
+                loop: true,
+                volume: 0.5
+            })
 
 
         };
     }
-    // background: new Howl({
-    //     urls: [
-    //         './app/public/sounds/background.mp3',
-    //         './app/public/sounds/background.ogg',
-    //         './app/public/sounds/background.wav'
-    //     ],
-    //     loop: true,
-    //     volume: 0.5
-    // })
 
     return {
         /**
