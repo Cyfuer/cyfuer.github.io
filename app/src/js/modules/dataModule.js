@@ -205,10 +205,15 @@ var DATA = (function() {
                 blogResponse.results.forEach(element => {
                     var blog = {};
                     blog.title = notion_readRichText(element.properties.Title.title);
+                    console.log('1');
                     blog.date = notion_readDate(element.properties.Date.date);
+                    console.log('2');
                     blog.desc = notion_readRichText(element.properties.Description.rich_text);
+                    console.log('3');
                     blog.type = notion_readSelect(element.properties.Type.select);
+                    console.log('4');
                     blog.tags = notion_readMultiSelect(element.properties.Tag.multi_select);
+                    console.log('5');
                     // blog.link = "https://roomy-octopus-669.notion.site/" + element.id.replace(/-/g, "");
                     blog.link = element.url.replace("https://www.notion.so", process.env.BLOG_HOST);
                     blogs.push(blog);
