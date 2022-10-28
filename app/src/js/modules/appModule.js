@@ -15,6 +15,8 @@ var Events = require('../classes/EventsClass');
  */
 var APP = (function() {
     var instance;
+    var isLoadBlogContent = false;
+
 
     function init() {
         var events = new Events();
@@ -127,6 +129,8 @@ var APP = (function() {
                     $infoTails.animate({ opacity: 0 }, 800);
                     $infoTailsNav.animate({ opacity: 1 }, 800);
                     $infoArrow.stop().animate({ opacity: 0, bottom: 20 }, 500);
+
+                    blogContent();
                 }
 
                 events.trigger('slideBegin', { to: to });
@@ -184,6 +188,8 @@ var APP = (function() {
             var current = $(".nav .active");
 
             $("#tails_contents__nav a").on("click", function() {
+
+                blogContent();
 
                 console.log('2======');
                 current.removeClass("active");
@@ -249,18 +255,21 @@ var APP = (function() {
         }
 
         function blogContent() {
-            loadData('./app/public/data/fakerdata.txt', function() {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    var json = xmlhttp.responseText;
-                    if (typeof json != "undefined" && json != null && json !== '') {
-                        var data = JSON.parse(unescape(Cipher.decipher(json)));
-                        console.log(data);
-                        generateTails(data);
+            if (!isLoadBlogContent) {
+                isLoadBlogContent = true;
+                loadData('./app/public/data/fakerdata.txt', function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        var json = xmlhttp.responseText;
+                        if (typeof json != "undefined" && json != null && json !== '') {
+                            var data = JSON.parse(unescape(Cipher.decipher(json)));
+                            console.log(data);
+                            generateTails(data);
+                        }
+                    } else {
+                        return '';
                     }
-                } else {
-                    return '';
-                }
-            })
+                })
+            }
         }
 
         function generateTails(data) {
@@ -299,7 +308,7 @@ var APP = (function() {
                 var tagStr = "";
                 for (const tagItem of element.tags) {
                     if (tagStr.length > 0) {
-                        tagStr += " | ";
+                        tagStr += " · ";
                     }
                     tagStr += tagItem;
                 }
@@ -509,10 +518,11 @@ var APP = (function() {
         function setup() {
             navigation();
             blogTab();
-            // setTimeout(() => {
-            //     blogContent();
-            // }, 100000);
-            blogContent();
+
+            setTimeout(() => {
+                blogContent();
+            }, 10000);
+
             return APP.getInstance();
         }
 

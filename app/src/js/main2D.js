@@ -31,9 +31,16 @@ function mobile() {
 jQuery(function() {
     HASH.replacePlaceholders();
 
+    var $tails = jQuery('.loader__title');
+    $tails.text("正在链接至子博客");
+    $tails.css("font-size", "16px");
+
     var loader = new Loader();
     loader.out();
-    window.location.assign("https://cyfuer.noto.so");
+    setTimeout(() => {
+        window.location.assign("https://cyfuer.noto.so");
+    }, 500);
+
     // var menu = new Menu();
     // var imagesLoader = new ImagesLoader([
     //     './app/public/img/part-beam.png',
