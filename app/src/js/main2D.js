@@ -33,76 +33,76 @@ jQuery(function() {
 
     var loader = new Loader();
     loader.out();
-    // window.location.assign("https://cyfuer.noto.so");
-    var menu = new Menu();
-    var imagesLoader = new ImagesLoader([
-        './app/public/img/part-beam.png',
-        './app/public/img/part-drop.png',
-        './app/public/img/part-sphere.png',
-        './app/public/img/part-grid.png',
-        './app/public/img/part-field.png',
-        './app/public/img/part-stars.png'
-    ]);
+    window.location.assign("https://cyfuer.noto.so");
+    // var menu = new Menu();
+    // var imagesLoader = new ImagesLoader([
+    //     './app/public/img/part-beam.png',
+    //     './app/public/img/part-drop.png',
+    //     './app/public/img/part-sphere.png',
+    //     './app/public/img/part-grid.png',
+    //     './app/public/img/part-field.png',
+    //     './app/public/img/part-stars.png'
+    // ]);
 
-    imagesLoader.onProgress(function(percent) {
-        loader.update(percent);
-    });
+    // imagesLoader.onProgress(function(percent) {
+    //     loader.update(percent);
+    // });
 
-    imagesLoader.start();
+    // imagesLoader.start();
 
-    heads
-    skrollr.init({ skrollrBody: 'mobile-body' });
+    // heads
+    // skrollr.init({ skrollrBody: 'mobile-body' });
 
-    tails
-    var wireframe = new Wireframe(jQuery('.wireframe'));
+    // tails
+    // var wireframe = new Wireframe(jQuery('.wireframe'));
 
-    if (!mobile()) {
-        var $tails = jQuery('.tails');
-        var $tailsSections = $tails.find('.tails__section');
+    // if (!mobile()) {
+    //     var $tails = jQuery('.tails');
+    //     var $tailsSections = $tails.find('.tails__section');
 
-        // prepare els
-        $tailsSections.find('.tails__section__el').animate({ opacity: 0, y: 100 }, 0);
+    //     // prepare els
+    //     $tailsSections.find('.tails__section__el').animate({ opacity: 0, y: 100 }, 0);
 
-        var waypoint = $tailsSections.waypoint({
-            offset: 30,
-            startAt: $tails.offset().top - 1000
-        });
+    //     var waypoint = $tailsSections.waypoint({
+    //         offset: 30,
+    //         startAt: $tails.offset().top - 1000
+    //     });
 
-        waypoint.start();
+    //     waypoint.start();
 
-        $tailsSections.on('active', function() {
-            var $el = jQuery(this);
+    //     $tailsSections.on('active', function() {
+    //         var $el = jQuery(this);
 
-            if ($el.attr('data-appeared')) {
-                return false;
-            }
+    //         if ($el.attr('data-appeared')) {
+    //             return false;
+    //         }
 
-            jQuery(this).find('.tails__section__el').each(function(i) {
-                jQuery(this).stop().delay(i * 100).animate({ opacity: 1, y: 0 }, 500);
-            });
+    //         jQuery(this).find('.tails__section__el').each(function(i) {
+    //             jQuery(this).stop().delay(i * 100).animate({ opacity: 1, y: 0 }, 500);
+    //         });
 
-            $el.attr('data-appeared', true);
-        });
+    //         $el.attr('data-appeared', true);
+    //     });
 
-        jQuery('.tails__section--site').on('stateChange', function(e, state) {
-            if (state === 'active') {
-                wireframe.start();
-                wireframe.in();
-            } else {
-                wireframe.stop();
-            }
-        });
-    } else {
-        wireframe.in();
-    }
+    //     jQuery('.tails__section--site').on('stateChange', function(e, state) {
+    //         if (state === 'active') {
+    //             wireframe.start();
+    //             wireframe.in();
+    //         } else {
+    //             wireframe.stop();
+    //         }
+    //     });
+    // } else {
+    //     wireframe.in();
+    // }
 
-    imagesLoader.onComplete(function() {
-        loader.out();
+    // imagesLoader.onComplete(function() {
+    //     loader.out();
 
-        setTimeout(function() {
-            menu.in();
-        }, 1500);
-    });
+    //     setTimeout(function() {
+    //         menu.in();
+    //     }, 1500);
+    // });
 
 
 });
