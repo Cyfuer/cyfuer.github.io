@@ -188,12 +188,15 @@ var APP = (function() {
                 console.log('2======');
                 current.removeClass("active");
                 var lastDiv = current.parent().attr("value");
+                $('.tails__contents__asset').scrollTop();
                 $('.tails__contents__asset .' + lastDiv).hide();
+                $('.tails__contents__asset .' + lastDiv).scrollTop();
 
                 current = $(this);
                 current.addClass("active");
                 var currentDiv = current.parent().attr("value");
                 $('.tails__contents__asset .' + currentDiv).show();
+                $('.tails__contents__asset .' + currentDiv).scrollTop();
 
                 var position = $(this)
                     .parent()
