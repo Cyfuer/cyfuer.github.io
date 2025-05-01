@@ -7,7 +7,7 @@
         "babel-preset-env": "^1.7.0",
         "browserify": "^17.0.0",
         "browserify-shim": "^3.8.14",
-        "gulp": "^4.0.2",
+        "gulp": "^5.0.0",
         "gulp-babel": "^7.0.1",
         "gulp-concat": "^2.6.1",
         "gulp-connect": "^5.7.0",
